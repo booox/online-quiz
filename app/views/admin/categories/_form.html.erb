@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @category] do |f| %>
+
+  <%= f.input :title, label: "类别名称" %>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+
+<% end %>
