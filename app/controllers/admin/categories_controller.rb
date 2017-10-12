@@ -1,14 +1,12 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-  before_action :find_category, only: [:show, :edit, :update, :destroy]
+  before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all
   end
 
-  def show
-  end
 
   def new
     @category = Category.new
@@ -48,6 +46,7 @@ class Admin::CategoriesController < ApplicationController
 
   def find_category
     @category = Category.find(params[:id])
+    # @category = Category.find_by_uuid(params[:id])
   end
 
 end
