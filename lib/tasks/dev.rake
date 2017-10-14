@@ -38,12 +38,19 @@ namespace :dev do
   end
 
   task :fake_question_and_answer => :environment do
-    500.times do |i|
+    puts "Go: fake_question_and_answer"
+    100.times do |i|
       question = Question.create!( :title => Faker::Lorem.sentence,
-                                   :category_id => Category.all.sample,
-                                   :type_id => Type.all.sample )
-      question.answers.create!( )
+                                   :category_id => Category.pluck(:id).sample,
+                                   :type_id => Type.pluck(:id).sample )
+      # puts "test..."
+      question.answers.create!( :title => Faker::HarryPotter.quote )
+      question.answers.create!( :title => Faker::HarryPotter.quote )
+      question.answers.create!( :title => Faker::HarryPotter.quote )
+      question.answers.create!( :title => Faker::HarryPotter.quote, :is_right => true)
     end
+
+    puts "Done: fake_question_and_answer"
   end
 
 end
