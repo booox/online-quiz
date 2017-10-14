@@ -19,7 +19,6 @@
 
   <div class="form-group">
     <%= f.label :category_id, "类别" %>
-    <%#= f.label :category_id %>
     <div class="btn-group" data-toggle="buttons">
       <% Category.all.each do |category| %>
         <label class="btn btn-default <%= (category.id == f.object.category_id)? 'active' : '' %>">
@@ -32,7 +31,6 @@
 
   <div class="form-group">
     <%= f.label :type_id, "题型" %>
-    <%#= f.label :type_id %>
     <div class="btn-group" data-toggle="buttons">
       <% Type.all.each do |type| %>
         <label class="btn btn-default <%= (type.id == f.object.type_id)? 'active' : '' %>">
@@ -56,10 +54,11 @@
         <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s]}, {}, class: "form-control" %> -->
         <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s] }, {}, :class => "form-control" %> -->
         <div class="btn-group" data-toggle="buttons">
-          <% ["是", "否"].each do |k| %>
+          <% [true, false].each do |k| %>
             <label class="btn btn-default <%= (k == ff.object.is_right)? 'active' : '' %>">
               <%= ff.radio_button :is_right, k %>
-              <%= k %>
+              <%#= k %>
+              <%= t(k, :scope => "question.answer") %>
             </label>
           <% end %>
         </div>

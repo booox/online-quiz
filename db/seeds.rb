@@ -32,3 +32,6 @@ types.each do |type|
 end
 
 puts "Categories Created."
+
+
+puts "import questions and answers"
