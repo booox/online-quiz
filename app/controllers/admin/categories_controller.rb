@@ -46,7 +46,6 @@ class Admin::CategoriesController < ApplicationController
 
   def find_category
     @category = Category.find(params[:id])
-    # @category = Category.find_by_uuid(params[:id])
   end
 
 end

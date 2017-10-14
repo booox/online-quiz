@@ -1,0 +1,24 @@
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增问题", new_admin_question_path, class: "btn btn-primary btn-sm" ) %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>问题名称</td>
+      <th>操作</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_question_path(question), class: "btn btn-primary btn-xs" %>
+        <%= link_to "Delete", admin_question_path(question), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

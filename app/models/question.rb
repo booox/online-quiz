@@ -1,0 +1,20 @@
+class Question < ApplicationRecord
+
+  # validates :title, :category_id, :type_id, presence: true
+  validates_presence_of :title, :category_id, :type_id
+  validate :check_answers
+
+  has_many :answers, inverse_of: :question, :dependent => :destroy
+  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
+
+  belongs_to :category
+  belongs_to :type
+
+  private
+
+  def check_answers
+    if self.answers.empty?
+      self.errors.add(:base, "至少需要一个答案")
+    end
+  end
+end

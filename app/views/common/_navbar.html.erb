@@ -26,6 +26,7 @@
                   </a>
                   <ul class="dropdown-menu">
                       <% if current_user.admin? %>
+                        <li><%= link_to("问题管理", admin_questions_path) %></li>
                         <li><%= link_to("类别管理", admin_categories_path) %></li>
                         <li><%= link_to("题型管理", admin_types_path) %></li>
                       <% end %>

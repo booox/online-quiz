@@ -1,0 +1,77 @@
+<%= form_for [:admin, @question] do |f| %>
+
+  <% if @question.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@question.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+    <ul>
+    <% @question.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, "问题" %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_id, "类别" %>
+    <%#= f.label :category_id %>
+    <div class="btn-group" data-toggle="buttons">
+      <% Category.all.each do |category| %>
+        <label class="btn btn-default <%= (category.id == f.object.category_id)? 'active' : '' %>">
+          <%= f.radio_button :category_id, category.id %>
+          <%= category.title %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :type_id, "题型" %>
+    <%#= f.label :type_id %>
+    <div class="btn-group" data-toggle="buttons">
+      <% Type.all.each do |type| %>
+        <label class="btn btn-default <%= (type.id == f.object.type_id)? 'active' : '' %>">
+          <%= f.radio_button :type_id, type.id %>
+          <%= type.title %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <%= f.nested_fields_for :answers do |ff| %>
+    <fieldset style="border-left: 5px solid #bbb; margin-bottom: 10px; padding: 10px;">
+      <legend>答案</legend>
+      <div class="form-group">
+        <%= ff.label :title, "答案" %>
+        <%= ff.text_field :title, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :is_right, "正确答案?" %>
+        <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s]}, {}, class: "form-control" %> -->
+        <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s] }, {}, :class => "form-control" %> -->
+        <div class="btn-group" data-toggle="buttons">
+          <% ["是", "否"].each do |k| %>
+            <label class="btn btn-default <%= (k == ff.object.is_right)? 'active' : '' %>">
+              <%= ff.radio_button :is_right, k %>
+              <%= k %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+    <%= ff.remove_nested_fields_link "移除这个答案", class: "btn btn-danger" %>
+  <% end %>
+  <p class="text-right">
+    <%= f.add_nested_fields_link :answers, "增加一个答案", class: "btn btn-default" %>
+  </p>
+
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+  <%= link_to "Cancel", admin_questions_path %>
+
+<% end %>
