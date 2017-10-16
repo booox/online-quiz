@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :types
     resources :questions
+    resources :quizzes
   end
 
 end

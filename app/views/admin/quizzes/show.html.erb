@@ -1,0 +1,13 @@
+
+<h1><%= @quiz.title %></h1>
+
+<% @quiz.questions.each.with_index(1) do |question, index| %>
+<div class="list-group">
+  <div class="list-group-item active">
+    <b><%= index %>、</b><%= link_to question.title, edit_admin_question_path(question), class: "btn btn-default" %>
+  </div>
+  <% question.answers.each do |answer| %>
+    <a href="#" class="list-group-item"><%= answer.title %></a>
+  <% end %>
+</div>
+<% end %>

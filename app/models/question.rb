@@ -10,6 +10,9 @@ class Question < ApplicationRecord
   belongs_to :category
   belongs_to :type
 
+  has_many :quiz_questions
+  has_many :quizzes, :through => :quiz_questions
+
   private
 
   def check_answers

@@ -18,3 +18,4 @@
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
 //= require nested_form_fields
+//= require select2
