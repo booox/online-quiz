@@ -1,0 +1,29 @@
+var right_answer_id = <%= @right_answer_id %>;
+var choice_id = <%= @choice_id %>;
+
+
+<% if @quiz_detail.blank? %>
+  console.log('Blank');
+
+  $("[id^=answer]").removeAttr('href');
+
+
+
+<% else %>
+  console.log('Note Blank');
+
+  $("[id^=answer]").removeAttr('href');
+
+<% end %>
+
+if(right_answer_id == choice_id){
+  // alert('Good');
+  console.log('Good');
+  $("#answer-<%= @choice_id %>").addClass('list-group-item-success');
+
+}else{
+  // alert('OPPS!');
+  console.log('Opps');
+  $("#answer-<%= @choice_id %>").addClass('list-group-item-danger');
+  $("#answer-<%= @right_answer_id %>").addClass('list-group-item-success');
+};

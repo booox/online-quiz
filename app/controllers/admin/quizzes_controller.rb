@@ -1,7 +1,7 @@
 class Admin::QuizzesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-  before_action :find_question, only: [:show, :edit, :update, :destroy]
+  before_action :find_quiz, only: [:show, :edit, :update, :destroy]
 
   def index
     @quizzes = Quiz.includes(:quiz_questions).all
@@ -57,7 +57,7 @@ class Admin::QuizzesController < ApplicationController
     params.require(:quiz).permit(:title, :category_id, :type_ids => [] )
   end
 
-  def find_question
+  def find_quiz
     @quiz = Quiz.includes(:quiz_questions).find(params[:id])
   end
 

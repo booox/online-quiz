@@ -1,0 +1,53 @@
+.post-nav-btn {
+    display: block;
+    border-top: 2px solid rgba(176,190,197,0.59);
+    margin-top: 30px;
+    padding-bottom: 20px
+}
+
+.post-nav-btn .pager-custom:after,.post-nav-btn .pager-custom:before {
+    display: table;
+    content: " "
+}
+
+.post-nav-btn .pager-custom {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none
+}
+
+.post-nav-btn .pager-custom li {
+    display: inline
+}
+
+.post-nav-btn .pager-custom li>a,.post-nav-btn .pager-custom li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 3px
+}
+
+.post-nav-btn .pager-custom .next>a,.post-nav-btn .pager-custom .next>span {
+    color: #fff;
+    background-color: #1ecd97;
+    border: 1px solid #1ecd97;
+    float: right
+}
+
+.post-nav-btn .pager-custom .next>a:focus,.post-nav-btn .pager-custom .next>a:hover {
+    color: #fff;
+    background-color: #21e0a3;
+    float: right
+}
+
+.post-nav-btn .pager-custom .previous>a,.post-nav-btn .pager-custom .previous>span {
+    border: 1px solid #ddd;
+    color: #666;
+    background-color: #fff;
+    float: left
+}
+
+.post-nav-btn .pager-custom .previous>a:focus,.post-nav-btn .pager-custom .previous>a:hover {
+    background-color: #eeeeee;
+    float: left
+}

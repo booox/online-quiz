@@ -1,0 +1,9 @@
+var right_answer_id = <%= @right_answer_id %>;
+var choice_id = <%= @choice_id %>;
+
+if(right_answer_id == choice_id){
+  $("#answer-<%= @choice_id %>").addClass('list-group-item-success');
+}else{
+  $("#answer-<%= @choice_id %>").addClass('list-group-item-danger');
+  $("#answer-<%= @right_answer_id %>").addClass('list-group-item-success');
+};

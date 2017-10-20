@@ -1,0 +1,6 @@
+
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= link_to question.title, quiz_question_path(@quiz, question) %></li>
+  <% end %>
+</ul>

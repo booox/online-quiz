@@ -1,0 +1,40 @@
+
+<h1><%= @quiz.title %></h1>
+
+<% @questions.each do |question| %>
+<div class="list-group">
+  <div class="list-group-item active">
+    <%= question.title %>
+  </div>
+
+  <!-- <form action="">
+    <input type="hidden" id="index" value="<%#= index %>" />
+  </form> -->
+
+  <% question.answers.each.with_index(1) do |answer, index| %>
+    <%= link_to answer.title, create_detail_quiz_path(@quiz.id, :question_id => question, :choice_id => "#{answer.id}"),
+                method: :post, remote: true, class: "list-group-item", id: "answer-#{answer.id}" %>
+  <% end %>
+</div>
+<% end %>
+
+
+<div class="text-center">
+  <%= will_paginate @questions, class: "apple_pagination" %>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col-xs-3">
+    <i class="fa fa-star-o" aria-hidden="true"></i> <span>收藏</span>
+  </div>
+  <div class="col-xs-2">
+    <i class="fa fa-check-square-o" aria-hidden="true"></i> <span class="green"><%= 9 %></span>
+  </div>
+  <div class="col-xs-2">
+    <i class="fa fa-window-close-o" aria-hidden="true"></i> <span class="red"><%= 9 %></span>
+  </div>
+  <div class="col-xs-5">
+    <i class="fa fa-th" aria-hidden="true"></i> <span><b><%= 22 %></b> / <%= @quiz.questions_count %></span>
+  </div>
+</div>
