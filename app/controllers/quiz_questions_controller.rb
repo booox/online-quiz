@@ -56,13 +56,6 @@ class QuizQuestionsController < ApplicationController
                         choice_id: @choice_id,
                         is_correct: is_correct)
     end
-
-    # @correct_answers_count = QuizDetail.correct_answers(params[:quiz_id]).size
-    # @wrong_answers_count = QuizDetail.wrong_answers(params[:quiz_id]).size
-
-    # puts "correct_answers: #{@correct_answers_count}"
-    # puts "wrong_answers: #{@wrong_answers_count}"
-
   end
 
 
