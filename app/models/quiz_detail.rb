@@ -2,7 +2,7 @@ class QuizDetail < ApplicationRecord
   belongs_to :quiz
   # belongs_to :answer
 
-  scope :correct_answers, ->(q) { where(quiz_id: q, is_correct: true )}
-  scope :wrong_answers, ->(q) { where(quiz_id: q, is_correct: false )}
-  scope :answered_question, ->(q) { where(quiz_id: q )}
+  scope :correct_answers, ->(q, u) { where(quiz_id: q, user_id: u, is_correct: true )}
+  scope :wrong_answers, ->(q, u) { where(quiz_id: q, user_id: u, is_correct: false )}
+  scope :answered_question, ->(q, u) { where(quiz_id: q, user_id: u )}
 end
