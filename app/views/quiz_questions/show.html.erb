@@ -46,17 +46,19 @@
 
 
 <hr>
-<div class="row">
+<div class="row" id="quiz-status-bar">
   <div class="col-xs-3">
     <i class="fa fa-star-o" aria-hidden="true"></i> <span>收藏</span>
   </div>
+  <%= link_to  quiz_questions_path(@quiz) do%>
   <div class="col-xs-2">
-    <i class="fa fa-check-square-o" aria-hidden="true"></i> <span class="green"><%= 9 %></span>
+    <i class="fa fa-check-square-o" aria-hidden="true"></i> <span id="correct_answers_count"><%= @correct_answers_count %></span>
   </div>
   <div class="col-xs-2">
-    <i class="fa fa-window-close-o" aria-hidden="true"></i> <span class="red"><%= 9 %></span>
+    <i class="fa fa-window-close-o" aria-hidden="true"></i> <span id="wrong_answers_count"><%= @wrong_answers_count %></span>
   </div>
   <div class="col-xs-5">
-    <i class="fa fa-th" aria-hidden="true"></i> <span><b><%= 22 %></b> / <%= @quiz.questions_count %></span>
+    <i class="fa fa-th" aria-hidden="true"></i> <span id="answered_question_count"><%= @answered_question_count %></span> / <span id="questions_count"><%= @quiz.questions_count %></span>
   </div>
+  <% end %>
 </div>

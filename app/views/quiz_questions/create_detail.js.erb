@@ -1,9 +1,20 @@
 var right_answer_id = <%= @right_answer_id %>;
 var choice_id = <%= @choice_id %>;
 
-if(right_answer_id == choice_id){
+$("[id^=answer-]").removeAttr("href");  // disable the answers' links when clicked
+
+var answered_question_count = parseInt($( "#answered_question_count" ).text(), 10) + 1 ;
+$( "#answered_question_count" ).text( answered_question_count );
+
+if(right_answer_id == choice_id){   // right answer
   $("#answer-<%= @choice_id %>").addClass('list-group-item-success');
-}else{
+
+  var correct_answers_count = parseInt($( "#correct_answers_count" ).text(), 10) + 1;
+  $( "#correct_answers_count" ).text( correct_answers_count );
+}else{                             // wrong answer
   $("#answer-<%= @choice_id %>").addClass('list-group-item-danger');
   $("#answer-<%= @right_answer_id %>").addClass('list-group-item-success');
+
+  var wrong_answers_count = parseInt($( "#wrong_answers_count" ).text(), 10) + 1 ;
+  $( "#wrong_answers_count" ).text( wrong_answers_count );
 };

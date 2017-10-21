@@ -1,6 +1,11 @@
 
-<ul>
+<ul id="questions-list">
   <% @questions.each do |question| %>
-    <li><%= link_to question.title, quiz_question_path(@quiz, question) %></li>
+    <li>
+      <%= display_question_icon(question.id, @answer_correct_questions_ids, @answer_wrong_questions_ids) %>
+      <%= link_to question.title, quiz_question_path(@quiz, question) %>
+    </li>
   <% end %>
 </ul>
+
+<hr>

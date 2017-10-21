@@ -4,14 +4,22 @@ class QuizQuestionsController < ApplicationController
 
   def index
     @questions = @quiz.questions
+    # @quiz_details = @quiz.quiz_details
+    @answer_correct_questions_ids = @quiz.quiz_details.where(is_correct: true).pluck(:question_id)
+    @answer_wrong_questions_ids = @quiz.quiz_details.where(is_correct: false).pluck(:question_id)
   end
 
   def show
     @question = @quiz.questions.find(params[:id])
     @question_answers = @question.answers.order("RANDOM()")
 
-    @right_answer = @question.answers.right_answer
+    @correct_answers_count = QuizDetail.correct_answers(@quiz).size
+    @wrong_answers_count = QuizDetail.wrong_answers(@quiz).size
+    @answered_question_count = QuizDetail.answered_question(@quiz).size
+
+    @right_answer = @question.answers.right_answer.first
     @right_answer_id = @right_answer.id
+
     @quiz_detail = QuizDetail.where(quiz_id: @quiz.id,
                                     user_id: current_user.id,
                                     question_id: @question.id).first
@@ -48,6 +56,13 @@ class QuizQuestionsController < ApplicationController
                         choice_id: @choice_id,
                         is_correct: is_correct)
     end
+
+    # @correct_answers_count = QuizDetail.correct_answers(params[:quiz_id]).size
+    # @wrong_answers_count = QuizDetail.wrong_answers(params[:quiz_id]).size
+
+    # puts "correct_answers: #{@correct_answers_count}"
+    # puts "wrong_answers: #{@wrong_answers_count}"
+
   end
 
 

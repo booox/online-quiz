@@ -1,6 +1,18 @@
 module QuizQuestionsHelper
+
+  # for index page
+  def display_question_icon(question_id, correct_ids, wrong_ids)
+    if correct_ids.include?(question_id)
+      content_tag(:i, nil, class: 'fa fa-check-circle', 'aria-hidden': true)
+    elsif wrong_ids.include?(question_id)
+      content_tag(:i, nil, class: 'fa fa-times', 'aria-hidden': true)
+    else
+      content_tag(:i, nil, class: 'fa fa-circle-o', 'aria-hidden': true)
+    end
+  end
+
+  # for show page
   def pretty_answer(answered, is_correct, right_answer_id, choice_id, answer_id)
-    # answered ? ( correct_answer ? "list-group-item-success" : "list-group-item-danger") : ""
 
     answered_css = ""
 

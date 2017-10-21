@@ -6,17 +6,15 @@
       <th>试卷名称</td>
       <th>类别</td>
       <th>题数</td>
-      <!-- <th>问题 ids</td> -->
     </tr>
   </thead>
 
   <tbody>
     <% @quizzes.each do |quiz| %>
     <tr>
-      <td><%= link_to quiz.title, quiz_questions_path(quiz) %></td>
+      <td><%= link_to quiz.title, quiz_question_path(quiz, quiz.questions.first) %></td>
       <td><%= quiz.category.title %></td>
       <td><%= quiz.questions_count %></td>
-      <!-- <td><%#= quiz.question_ids %></td> -->
     </tr>
     <% end %>
   </tbody>

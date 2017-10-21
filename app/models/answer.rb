@@ -3,5 +3,5 @@ class Answer < ApplicationRecord
 
   belongs_to :question
 
-  scope :right_answer, -> { where( is_right: true ).first }
+  scope :right_answer, -> { where( is_right: true ) }
 end

@@ -19,3 +19,43 @@
 @import "font-awesome";
 @import "select2";
 @import "select2-bootstrap";
+
+
+// .answer_count{
+// }
+
+#correct_answers_count{
+  color: green;
+  font-weight: bold;
+}
+
+#wrong_answers_count{
+  color: red;
+  font-weight: bold;
+}
+
+#answered_question_count{
+  font-weight: bold;
+}
+
+// for quiz_questions index page
+
+#questions-list{
+  list-style: none;
+  .fa-check-circle {
+      color:green;
+  }
+  .fa-times {
+      color:red;
+  }
+}
+
+// for quiz_questions show page
+#quiz-status-bar{
+  .fa-check-square-o{
+    color: green;
+  }
+  .fa-window-close-o{
+    color: red;
+  }
+}
