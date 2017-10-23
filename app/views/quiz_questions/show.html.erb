@@ -48,7 +48,10 @@
 <hr>
 <div class="row" id="quiz-status-bar">
   <div class="col-xs-3">
-    <i class="fa fa-star-o" aria-hidden="true"></i> <span>收藏</span>
+    <%= link_to favorite_quiz_question_path(:quiz_id => @quiz, :id => @question.id), method: :post, remote: true do%>
+      <%= display_question_favorite(@not_favorite, @is_favorite) %>
+    <% end %>
+    <span id="favorite_text">收藏</span>
   </div>
   <%= link_to  quiz_questions_path(@quiz) do%>
   <div class="col-xs-2">

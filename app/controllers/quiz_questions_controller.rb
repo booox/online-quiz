@@ -35,6 +35,9 @@ class QuizQuestionsController < ApplicationController
     @previous_question = @quiz.questions.where('quiz_questions.quiz_id = ? and questions.id < ?', @quiz.id, @question.id).order('id DESC').first
     @next_question = @quiz.questions.where('quiz_questions.quiz_id = ? and questions.id > ?', @quiz.id, @question.id).order('id ASC').first
 
+    @not_favorite = current_user && ! current_user.favorite_question?(@question)
+    @is_favorite = current_user && current_user.favorite_question?(@question)
+
   end
 
   def create_detail
@@ -55,6 +58,20 @@ class QuizQuestionsController < ApplicationController
                         question_id: params[:id],
                         choice_id: @choice_id,
                         is_correct: is_correct)
+    end
+  end
+
+
+  def favorite
+    @question = @quiz.questions.find(params[:id])
+    @not_favorite = current_user && ! current_user.favorite_question?(@question)
+    @is_favorite = current_user && current_user.favorite_question?(@question)
+
+    if @not_favorite
+      current_user.favorite_questions << @question
+
+    elsif @is_favorite
+      current_user.favorite_questions.delete(@question)
     end
   end
 

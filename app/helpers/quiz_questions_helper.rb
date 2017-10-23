@@ -12,6 +12,17 @@ module QuizQuestionsHelper
   end
 
   # for show page
+  def display_question_favorite(not_favorite, is_favorite)
+    if not_favorite
+      content_tag(:i, nil, class: 'fa fa-star-o', id: "favorite_icon", 'aria-hidden': true)
+
+    elsif is_favorite
+      content_tag(:i, nil, class: 'fa fa-star', id: "favorite_icon", 'aria-hidden': true)
+    end
+  end
+
+
+  # for show page
   def pretty_answer(answered, is_correct, right_answer_id, choice_id, answer_id)
 
     answered_css = ""

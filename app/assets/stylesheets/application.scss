@@ -52,6 +52,12 @@
 
 // for quiz_questions show page
 #quiz-status-bar{
+  a{
+    text-decoration: none;
+  }
+  .fa-star, .fa-star-o{
+    color: orange;
+  }
   .fa-check-square-o{
     color: green;
   }

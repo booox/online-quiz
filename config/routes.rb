@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       # post :create_detail
       member do
         post :create_detail
+        post :favorite
       end
     end
   end
