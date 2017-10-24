@@ -12,22 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes do
-    # member do
-    #   post :create_detail
-    # end
     resources :questions, :controller => 'quiz_questions' do
-      # post :create_detail
       member do
         post :create_detail
         post :favorite
       end
     end
   end
-
-  # resources :questions do
-  #   member do
-  #     post :create_detail
-  #   end
-  # end
 
 end

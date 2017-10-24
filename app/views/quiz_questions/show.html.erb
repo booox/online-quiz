@@ -5,7 +5,7 @@
     <%= @question.title %>
   </div>
 
-  <ul>
+  <ul id="answers-list" class="list-group">
   <% @question_answers.each.with_index(1) do |answer, index| %>
     <% if @answered %>
       <li class="list-group-item <%= pretty_answer(@answered, @is_correct, @right_answer_id, @choice_id, answer.id) %>", id: "answer-<%= answer.id %>"><%= answer.title %></li>
