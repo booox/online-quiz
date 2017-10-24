@@ -1,7 +1,7 @@
 class Admin::QuizzesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-  before_action :find_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :find_quiz, only: [:show, :edit, :update, :destroy, :hide_and_publish]
 
   def index
     @quizzes = Quiz.includes(:quiz_questions).all
@@ -49,6 +49,17 @@ class Admin::QuizzesController < ApplicationController
   def destroy
     @quiz.destroy
     redirect_to admin_quizzes_path
+  end
+
+  def hide_and_publish
+    @is_hidden = @quiz.is_hidden?
+
+    if @is_hidden
+      @quiz.is_hidden = false
+    else
+      @quiz.is_hidden = true
+    end
+    @quiz.save
   end
 
   private

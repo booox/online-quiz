@@ -1,0 +1,7 @@
+var is_hidden = <%= @is_hidden %>;
+
+if(is_hidden){
+  $("#quiz-hide-<%= @quiz.id %>").removeClass("fa fa-lock").addClass("fa fa-globe");
+}else{
+  $("#quiz-hide-<%= @quiz.id %>").removeClass("fa fa-globe").addClass("fa fa-lock");
+};

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     resources :categories
     resources :types
     resources :questions
-    resources :quizzes
+    resources :quizzes do
+      member do
+        post :hide_and_publish
+      end
+    end
   end
 
   resources :quizzes do
