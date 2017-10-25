@@ -1,7 +1,6 @@
 class Question < ApplicationRecord
 
-  # validates :title, :category_id, :type_id, presence: true
-  validates_presence_of :title, :category_id, :type_id
+  validates_presence_of :title, :category_id
   validate :check_answers
 
   has_many :answers, inverse_of: :question, :dependent => :destroy

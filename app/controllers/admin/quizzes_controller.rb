@@ -15,18 +15,10 @@ class Admin::QuizzesController < ApplicationController
   end
 
   def create
-    puts ".....％％％％％。。。。。"
-    type_ids = quiz_params[:type_ids]
-
-    puts quiz_params[:category_id]
-
     @quiz = Quiz.new(quiz_params)
-    # @quiz.
 
     if @quiz.save
       Question.where("category_id = ?", quiz_params[:category_id]).each do |question_id|
-      # params[].each do |question_id|
-        # @quiz.quiz_questions.create!(question_id: question_id, quiz_id: @quiz.id)
         @quiz.questions << question_id
       end
       redirect_to admin_quizzes_path, notice: "试卷添加成功"
@@ -65,7 +57,7 @@ class Admin::QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :category_id, :type_ids => [] )
+    params.require(:quiz).permit(:title, :category_id )
   end
 
   def find_quiz

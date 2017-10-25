@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, "试卷题目" %>
+    <%= f.label :title, "试卷题目(*)" %>
     <%= f.text_field :title, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :category_id, "抽题类别" %>
+    <%= f.label :category_id, "抽题类别(*)" %>
     <div class="btn-group" data-toggle="buttons">
       <% Category.all.each do |category| %>
         <label class="btn btn-default <%= (category.id == f.object.category_id)? 'active' : '' %>">
@@ -27,16 +27,6 @@
         </label>
       <% end %>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :type_ids, "抽题题型" %>
-    <%= f.collection_check_boxes( :type_ids, Type.all, :id, :title ) %>
-  </div>
-
-  <div class="form-group">
-    <%#= f.label :question_count, "抽题数量" %>
-    <%#= f.text_field :question_count, class: "form-control" %>
   </div>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>

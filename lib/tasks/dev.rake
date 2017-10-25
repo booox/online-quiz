@@ -41,8 +41,7 @@ namespace :dev do
     puts "Go: fake_question_and_answer"
     100.times do |i|
       question = Question.create!( :title => Faker::Lorem.sentence,
-                                   :category_id => Category.pluck(:id).sample,
-                                   :type_id => Type.pluck(:id).sample )
+                                   :category_id => Category.pluck(:id).sample )
       # puts "test..."
       question.answers.create!( :title => Faker::HarryPotter.quote )
       question.answers.create!( :title => Faker::HarryPotter.quote )
