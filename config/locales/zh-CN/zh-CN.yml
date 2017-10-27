@@ -25,6 +25,9 @@
     answer:
       "false": "否"
       "true": "是"
+  user:
+    favorite: "_favorite_"
+    wrong: "_wrong_"
   activerecord:
     errors:
       messages:

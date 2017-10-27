@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # root "welcome#index"
   root "quizzes#index"
 
-  # get '/favorites', to: '', as: 'favorites'
+  get '/favorites', to: 'quiz_questions#show', as: 'favorites'
 
   namespace :admin do
     resources :categories

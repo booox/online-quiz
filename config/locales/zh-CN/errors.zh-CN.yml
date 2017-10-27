@@ -2,6 +2,13 @@ zh-CN:
   activerecord:
     errors:
       models:
+        quiz:
+          attributes:
+            title:
+              blank: 不能为空
+            category:
+              blank: 不能为空
+              required: 不能为空
         material:
           attributes:
             name:

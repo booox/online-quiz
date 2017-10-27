@@ -1,16 +1,37 @@
 class QuizQuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_quiz
+  # before_action :find_quiz
 
   def index
-    @questions = @quiz.questions
-    # @quiz_details = @quiz.quiz_details
+    if params[:collection].present?
+      collection = params[:collection]
+      @quiz = Quiz.where(title: current_user.user_quiz_title(collection)).first
+      @questions = current_user.favorite_questions
+    else
+      @quiz = Quiz.find(params[:quiz_id])
+      @questions = @quiz.questions
+    end
+
     @answer_correct_questions_ids = @quiz.quiz_details.where(is_correct: true, user_id: current_user).pluck(:question_id)
     @answer_wrong_questions_ids = @quiz.quiz_details.where(is_correct: false, user_id: current_user).pluck(:question_id)
   end
 
   def show
+
+    # if params[:collection].present?
+    #   collection = params[:collection]
+    #   @quiz = Quiz.where(title: current_user.user_quiz_title(collection)).first
+    #   @questions = current_user.favorite_questions
+    # else
+    #   @quiz = Quiz.find(params[:quiz_id])
+    #   @questions = @quiz.questions
+    # end
+
+
+
+    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
+
     @question_answers = @question.answers.order("RANDOM()")
 
     @correct_answers_count = QuizDetail.correct_answers(@quiz, current_user).size
@@ -63,23 +84,28 @@ class QuizQuestionsController < ApplicationController
 
 
   def favorite
+    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
     @not_favorite = current_user && ! current_user.favorite_question?(@question)
     @is_favorite = current_user && current_user.favorite_question?(@question)
 
+    # quiz = Quiz.where(title: )
+    user_quiz = current_user.get_user_quiz("favorite")  # for favorite
+
     if @not_favorite
       current_user.favorite_questions << @question
-
+      user_quiz.questions << @question  # for favorite
     elsif @is_favorite
       current_user.favorite_questions.delete(@question)
+      user_quiz.questions.delete(@question)  # for favorite
     end
   end
 
 
   private
 
-  def find_quiz
-    @quiz = Quiz.find(params[:quiz_id])
-  end
+  # def find_quiz
+  #   @quiz = Quiz.find(params[:quiz_id])
+  # end
 
 end
