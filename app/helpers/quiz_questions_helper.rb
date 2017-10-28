@@ -12,12 +12,13 @@ module QuizQuestionsHelper
   end
 
   # for show page
-  def display_question_favorite(not_favorite, is_favorite)
-    if not_favorite
-      content_tag(:i, nil, class: 'fa fa-star-o', id: "favorite_icon", 'aria-hidden': true)
-
-    elsif is_favorite
-      content_tag(:i, nil, class: 'fa fa-star', id: "favorite_icon", 'aria-hidden': true)
+  def display_question_favorite(not_favorite, is_favorite, quiz_type)
+    if !quiz_type.present?    # quiz_type: favorite , wrong
+      if not_favorite
+        content_tag(:i, nil, class: 'fa fa-star-o', id: "favorite_icon", 'aria-hidden': true)
+      elsif is_favorite
+        content_tag(:i, nil, class: 'fa fa-star', id: "favorite_icon", 'aria-hidden': true)
+      end
     end
   end
 

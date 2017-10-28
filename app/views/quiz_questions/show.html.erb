@@ -49,9 +49,8 @@
 <div class="row" id="quiz-status-bar">
   <div class="col-xs-3">
     <%= link_to favorite_quiz_question_path(:quiz_id => @quiz, :id => @question.id), method: :post, remote: true do%>
-      <%= display_question_favorite(@not_favorite, @is_favorite) %>
+      <%= display_question_favorite(@not_favorite, @is_favorite, @quiz_type) %>
     <% end %>
-    <span id="favorite_text">收藏</span>
   </div>
   <%= link_to  quiz_questions_path(@quiz) do%>
   <div class="col-xs-2">
@@ -61,7 +60,7 @@
     <i class="fa fa-window-close-o" aria-hidden="true"></i> <span id="wrong_answers_count"><%= @wrong_answers_count %></span>
   </div>
   <div class="col-xs-5">
-    <i class="fa fa-th" aria-hidden="true"></i> <span id="answered_question_count"><%= @answered_question_count %></span> / <span id="questions_count"><%= @quiz.questions_count %></span>
+    <i class="fa fa-th" aria-hidden="true"></i> <span id="answered_question_count"><%= @answered_question_count %></span> / <span id="questions_count"><%= @quiz.questions.size %></span>
   </div>
   <% end %>
 </div>

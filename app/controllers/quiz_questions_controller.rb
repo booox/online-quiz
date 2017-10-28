@@ -3,14 +3,8 @@ class QuizQuestionsController < ApplicationController
   # before_action :find_quiz
 
   def index
-    if params[:collection].present?
-      collection = params[:collection]
-      @quiz = Quiz.where(title: current_user.user_quiz_title(collection)).first
-      @questions = current_user.favorite_questions
-    else
-      @quiz = Quiz.find(params[:quiz_id])
-      @questions = @quiz.questions
-    end
+    @quiz = Quiz.find(params[:quiz_id])
+    @questions = @quiz.questions
 
     @answer_correct_questions_ids = @quiz.quiz_details.where(is_correct: true, user_id: current_user).pluck(:question_id)
     @answer_wrong_questions_ids = @quiz.quiz_details.where(is_correct: false, user_id: current_user).pluck(:question_id)
@@ -18,19 +12,9 @@ class QuizQuestionsController < ApplicationController
 
   def show
 
-    # if params[:collection].present?
-    #   collection = params[:collection]
-    #   @quiz = Quiz.where(title: current_user.user_quiz_title(collection)).first
-    #   @questions = current_user.favorite_questions
-    # else
-    #   @quiz = Quiz.find(params[:quiz_id])
-    #   @questions = @quiz.questions
-    # end
-
-
-
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
+    @quiz_type = @quiz.quiz_type
 
     @question_answers = @question.answers.order("RANDOM()")
 
@@ -98,6 +82,18 @@ class QuizQuestionsController < ApplicationController
     elsif @is_favorite
       current_user.favorite_questions.delete(@question)
       user_quiz.questions.delete(@question)  # for favorite
+
+      quiz_detail = QuizDetail.where(quiz_id: user_quiz.id,
+                      user_id: current_user.id,
+                      question_id: @question.id).first
+      if quiz_detail
+        puts "quiz_detail exist.."
+        quiz_detail.destroy
+      else
+        puts "quiz_detail doesnot exist..."
+      end
+
+
     end
   end
 

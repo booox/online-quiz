@@ -1,9 +1,6 @@
 class Quiz < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: true
-  # validates_presence_of :category_id, :if => :no_quiz_type?
-  # validates :category_id, presence: true, :if => quiz_type.blank?
-  # validates :category_id, presence: true, if: :no_quiz_type?
   validates :category_id, presence: true, if: :no_quiz_type?
 
   has_many :quiz_questions
