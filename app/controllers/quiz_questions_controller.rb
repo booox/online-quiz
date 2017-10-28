@@ -18,9 +18,9 @@ class QuizQuestionsController < ApplicationController
 
     @question_answers = @question.answers.order("RANDOM()")
 
-    @correct_answers_count = QuizDetail.correct_answers(@quiz, current_user).size
-    @wrong_answers_count = QuizDetail.wrong_answers(@quiz, current_user).size
-    @answered_question_count = QuizDetail.answered_question(@quiz, current_user).size
+    @quiz_correct_answers_count = QuizDetail.quiz_correct_answers(@quiz, current_user).size
+    @quiz_wrong_answers_count = QuizDetail.quiz_wrong_answers(@quiz, current_user).size
+    @quiz_answered_question_count = QuizDetail.quiz_answered_question(@quiz, current_user).size
 
     @right_answer = @question.answers.right_answer.first
     @right_answer_id = @right_answer.id
