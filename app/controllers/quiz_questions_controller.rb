@@ -1,6 +1,6 @@
 class QuizQuestionsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :find_quiz
+  before_action :find_quiz
 
   def index
     @quiz = Quiz.find(params[:quiz_id])
@@ -46,7 +46,7 @@ class QuizQuestionsController < ApplicationController
   end
 
   def create_detail
-
+    @question = @quiz.questions.find(params[:id])
     @right_answer = Answer.where(question_id: params[:id],
                                 is_right: true).first
     @right_answer_id = @right_answer.id
@@ -63,6 +63,11 @@ class QuizQuestionsController < ApplicationController
                         question_id: params[:id],
                         choice_id: @choice_id,
                         is_correct: is_correct)
+
+      user_quiz = current_user.get_user_quiz("wrong")  # for wrongs
+      if ! user_quiz.questions.include?(@question)
+        user_quiz.questions << @question
+      end
     end
   end
 
@@ -100,8 +105,8 @@ class QuizQuestionsController < ApplicationController
 
   private
 
-  # def find_quiz
-  #   @quiz = Quiz.find(params[:quiz_id])
-  # end
+  def find_quiz
+    @quiz = Quiz.find(params[:quiz_id])
+  end
 
 end

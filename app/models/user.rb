@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create :create_user_quiz
-  # after_create :create_wrong_quiz
 
   has_many :favorites
   has_many :favorite_questions, :through => :favorites, :source => :question
