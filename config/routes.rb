@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories
     resources :types
-    resources :questions
+    resources :questions do
+      collection do
+        post :import
+      end
+    end
     resources :quizzes do
       member do
         post :hide_and_publish
