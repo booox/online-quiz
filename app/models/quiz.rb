@@ -11,6 +11,8 @@ class Quiz < ApplicationRecord
   has_many :quiz_details
   has_many :answers, :through => :quiz_details
 
+  scope :no_quiz_type_quizzes, -> { where( quiz_type: "" ) }
+
   def is_hidden?
     is_hidden
   end

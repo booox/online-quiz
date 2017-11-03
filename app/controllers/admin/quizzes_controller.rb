@@ -4,7 +4,7 @@ class Admin::QuizzesController < ApplicationController
   before_action :find_quiz, only: [:show, :edit, :update, :destroy, :hide_and_publish]
 
   def index
-    @quizzes = Quiz.includes(:quiz_questions).all
+    @quizzes = Quiz.includes(:quiz_questions).no_quiz_type_quizzes
   end
 
   def show
