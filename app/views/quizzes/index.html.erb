@@ -14,7 +14,7 @@
     <tr>
       <td><%= link_to quiz.title, quiz_question_path(quiz, quiz.questions.first) %></td>
       <td><%= quiz.category.title %></td>
-      <td><%= quiz.questions_count %></td>
+      <td><%= quiz.questions.size %></td>
     </tr>
     <% end %>
   </tbody>
