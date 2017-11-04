@@ -44,11 +44,14 @@ gem 'simple_form'
 gem 'nested_form_fields'
 gem 'select2-rails'
 gem 'will_paginate'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'sqlite3'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
 group :development do
