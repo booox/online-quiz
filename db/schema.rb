@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20171028042716) do
     t.integer  "category_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "questions_count", default: 0
+    t.integer  "question_count", default: 0
     t.boolean  "is_hidden",       default: true
     t.string   "quiz_type",       default: ""
   end

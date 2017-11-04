@@ -5,7 +5,7 @@ class CreateQuizzes < ActiveRecord::Migration[5.0]
       t.integer :category_id, index: true
       # t.text :type_ids
       # t.text :question_ids
-      t.integer :questions_count
+      t.integer :question_count
 
       t.timestamps
     end
