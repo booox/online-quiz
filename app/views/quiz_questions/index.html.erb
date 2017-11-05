@@ -3,7 +3,7 @@
     <%= display_quiz_title(@quiz, @quiz_type) %>
   </div>
   <div class="col-xs-3 col-md-4">
-    <%= link_to( t("quiz.reset_quiz"), reset_quiz_path(@quiz), method: :post, class: "btn btn-danger btn-sm", data: { confirm: t("quiz.reset_quiz_confirm") } ) %>
+    <%= link_to( t("quiz.reset_quiz"), reset_quiz_path(@quiz), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: t("quiz.reset_quiz_confirm") } ) %>
   </div>
 </div>
 

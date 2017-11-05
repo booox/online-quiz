@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      post :reset
+      delete :reset
     end
   end
 
