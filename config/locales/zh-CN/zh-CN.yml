@@ -21,6 +21,14 @@
 
 "zh-CN":
   hello: "Hello world"
+  site:
+    site_name: "去答题"
+    my_favorite: "我的收藏"
+    my_wrong: "我的错题"
+  quiz:
+    reset_quiz: "清空重做"
+    reset_quiz_confirm: "如果清空重做，所有记录都会被删除\n确定要清空重做吗？"
+
   question:
     answer:
       "false": "否"

@@ -24,6 +24,18 @@ module QuizQuestionsHelper
 
 
   # for show page
+  def display_quiz_title(quiz, quiz_type)
+    if !quiz_type.present?
+      quiz.title
+    elsif quiz.title == "_user_favorite_#{current_user.id}"
+      t("site.my_favorite")
+    elsif quiz.title == "_user_wrong_#{current_user.id}"
+      t("site.my_wrong")
+    end
+  end
+
+
+  # for show page
   def pretty_answer(answered, is_correct, right_answer_id, choice_id, answer_id)
 
     answered_css = ""

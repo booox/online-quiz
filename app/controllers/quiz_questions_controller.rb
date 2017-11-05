@@ -4,6 +4,7 @@ class QuizQuestionsController < ApplicationController
 
   def index
     @quiz = Quiz.find(params[:quiz_id])
+    @quiz_type = @quiz.quiz_type
     @questions = @quiz.questions
 
     @answer_correct_questions_ids = @quiz.quiz_details.where(is_correct: true, user_id: current_user).pluck(:question_id)
@@ -78,7 +79,6 @@ class QuizQuestionsController < ApplicationController
     @not_favorite = current_user && ! current_user.favorite_question?(@question)
     @is_favorite = current_user && current_user.favorite_question?(@question)
 
-    # quiz = Quiz.where(title: )
     user_quiz = current_user.get_user_quiz("favorite")  # for favorite
 
     if @not_favorite
@@ -88,17 +88,9 @@ class QuizQuestionsController < ApplicationController
       current_user.favorite_questions.delete(@question)
       user_quiz.questions.delete(@question)  # for favorite
 
-      quiz_detail = QuizDetail.where(quiz_id: user_quiz.id,
-                      user_id: current_user.id,
-                      question_id: @question.id).first
-      if quiz_detail
-        puts "quiz_detail exist.."
-        quiz_detail.destroy
-      else
-        puts "quiz_detail doesnot exist..."
-      end
-
-
+      # quiz_detail = QuizDetail.where(quiz_id: user_quiz.id,
+      #                 user_id: current_user.id,
+      #                 question_id: @question.id).first
     end
   end
 

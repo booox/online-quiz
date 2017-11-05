@@ -1,3 +1,13 @@
+<div class="row">
+  <div class="col-xs-9 col-md-8 quiz-title">
+    <%= display_quiz_title(@quiz, @quiz_type) %>
+  </div>
+  <div class="col-xs-3 col-md-4">
+    <%= link_to( t("quiz.reset_quiz"), reset_quiz_path(@quiz), method: :post, class: "btn btn-danger btn-sm", data: { confirm: t("quiz.reset_quiz_confirm") } ) %>
+  </div>
+</div>
+
+<hr>
 
 <ul id="questions-list">
   <% @questions.each do |question| %>

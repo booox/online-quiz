@@ -42,6 +42,9 @@
 
 #questions-list{
   list-style: none;
+  li{
+    line-height: 20px;
+  }
   .fa-check-circle {
       color:green;
   }
@@ -50,6 +53,11 @@
   }
 }
 
+.quiz-title{
+  padding-left: 55px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
 
 
 // for quiz_questions show page

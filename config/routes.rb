@@ -28,6 +28,10 @@ Rails.application.routes.draw do
         post :favorite
       end
     end
+
+    member do
+      post :reset
+    end
   end
 
 end
