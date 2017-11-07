@@ -45,7 +45,7 @@ gem 'nested_form_fields'
 gem 'select2-rails'
 gem 'will_paginate'
 gem 'pg'
-# gem 'jquery-ui-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

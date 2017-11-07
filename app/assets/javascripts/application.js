@@ -19,6 +19,7 @@
 //= require bootstrap/collapse
 //= require nested_form_fields
 //= require select2
+//= require jquery-ui/widgets/draggable
 
 
 
@@ -65,9 +66,9 @@ function enable_submit_on_complain_input_validation() {
 
 
 $(document).ready(function() {
-    // $("#complainModal").find(".modal-dialog").draggable({
-    //     handle: ".modal-header";
-    // });
+    $("#complainModal").find(".modal-dialog").draggable({
+        handle: ".modal-header"
+    });
     // $("#complainModal").find(".modal-content").on("mouseleave", function() {
     //     $(".posts.posts-show").css("overflow", "auto");
     // });
