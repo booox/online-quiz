@@ -19,3 +19,15 @@
 //= require bootstrap/collapse
 //= require nested_form_fields
 //= require select2
+
+
+
+function enable_submit_on_complain_input_validation() {
+    var t = 0 !== $("#complain_content").val().length;
+    t ? $("#complain-submit-btn").prop("disabled", !1) : $("#complain-submit-btn").prop("disabled", !0)
+}
+
+
+$(document).ready(function() {
+    $("#complain_content").on("input propertychange", enable_submit_on_complain_input_validation);
+})
