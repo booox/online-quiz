@@ -13,7 +13,7 @@
   <tbody>
     <% @complains.each do |complain| %>
     <tr>
-      <td><%= complain.user.name %></td>
+      <td><%= complain.user.email %></td>
       <td><%= link_to complain.question.title, admin_question_path(complain.question) %></td>
       <td><%= complain.content %></td>
       <td>
