@@ -26,7 +26,7 @@
 function enable_submit_on_complain_input_validation() {
     var t = 0 !== $("#complain_content").val().length;
     t ? $("#complain-submit-btn").prop("disabled", !1) : $("#complain-submit-btn").prop("disabled", !0)
-}
+};
 
 
 // flash_message
@@ -60,12 +60,7 @@ function enable_submit_on_complain_input_validation() {
 })(jQuery);
 
 
-// $(document).ready(function() {
-//     $("#complain_content").on("input propertychange", enable_submit_on_complain_input_validation);
-// })
-
-
-$(document).ready(function() {
+$(document).on("turbolinks:load", function() {
     $("#complainModal").find(".modal-dialog").draggable({
         handle: ".modal-header"
     });
@@ -83,12 +78,12 @@ $(document).ready(function() {
     //     $("#complainModal").find("#complainModalLabel").html("\u60a8\u5bf9\u672c\u7bc7\u6559\u7a0b\u6709\u4ec0\u4e48\u60f3\u8bf4\u7684\uff1f");
     //     $(".posts.posts-show").css("overflow-x", "hidden");
     // });
-    $("#complain-submit-btn").on("click", function(t) {
-        t.preventDefault();
-        $(this).prop("disabled", !0);
-        $("#new_complain").submit();
-        $(this).val("\u63d0\u4ea4\u4e2d...");
-    });
+    // $("#complain-submit-btn").on("click", function(t) {
+    //     t.preventDefault();
+    //     $(this).prop("disabled", !0);
+    //     $("#new_complain").submit();
+    //     $(this).val("\u63d0\u4ea4\u4e2d...");
+    // });
     $("#complain_content").on("input propertychange", enable_submit_on_complain_input_validation);
     // $("#complain_image").on("change", enable_submit_on_complain_input_validation);
 })
