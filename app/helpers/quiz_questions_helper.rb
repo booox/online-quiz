@@ -35,6 +35,28 @@ module QuizQuestionsHelper
   end
 
 
+  # for quiz question show page
+  def display_user_feeling(quiz, question, user_feeling)
+    feelings = [["good", "😄", "So easy"], ["normal", "😐", "还OK"], ["bad", "😭", "崩溃了"]]
+
+    concat(content_tag(:div, class: "panic-panel-body ui-selectable", id: "selectable" ) do
+      feelings.each do |feeling|
+
+        concat( link_to( feeling_quiz_question_path(quiz_id: quiz.id, id: question.id, feeling_value: "#{feeling[0]}" ), method: :post, class: "item ui-selectee #{ 'ui-selected' if user_feeling == feeling[0] }", id: "item-#{feeling[0]}", remote: true) do
+
+          concat(content_tag(:div, class: "ui-widget-content ui-selectee" ) do
+            concat(content_tag(:span, feeling[1], class: "emoji ui-selectee" ))
+            concat(content_tag(:span, feeling[2], class: "text ui-selectee" ))
+          end)
+
+        end)
+      end
+    end)
+
+    return nil
+  end
+
+
   # for show page
   def pretty_answer(answered, is_correct, right_answer_id, choice_id, answer_id)
 

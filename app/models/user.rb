@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favorite_questions, :through => :favorites, :source => :question
 
+  has_many :feelings, dependent: :destroy
+
   def admin?
     is_admin
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028042716) do
+ActiveRecord::Schema.define(version: 20171106033807) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20171028042716) do
     t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_favorites_on_question_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "feelings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.string   "value",       default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["question_id"], name: "index_feelings_on_question_id"
+    t.index ["user_id"], name: "index_feelings_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -76,7 +86,7 @@ ActiveRecord::Schema.define(version: 20171028042716) do
     t.integer  "category_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "question_count", default: 0
+    t.integer  "questions_count", default: 0
     t.boolean  "is_hidden",       default: true
     t.string   "quiz_type",       default: ""
   end

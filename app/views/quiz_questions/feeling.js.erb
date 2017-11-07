@@ -1,0 +1,4 @@
+var feeling_value = "<%= @feeling_value %>";
+
+$( "[id^=item-]" ).removeClass("ui-selected");
+$( "#item-" + feeling_value ).addClass("ui-selected");

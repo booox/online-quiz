@@ -28,4 +28,5 @@ module ApplicationHelper
       link_to( "我的错题", "/")
     end
   end
+
 end

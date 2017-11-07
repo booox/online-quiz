@@ -26,6 +26,45 @@
   </ul>
 </div>
 
+<!-- 我要吐槽 start -->
+<div class="panic-panel">
+  <div class="panic-panel-title">
+    <h4>对本题内容的感受如何？</h4>
+    <div class="complain-btn">
+      <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#complainModal" id="want-to-complain-btn">
+        📣 &nbsp;我要吐槽
+      </button>
+    </div>
+  </div>
+  <%= display_user_feeling( @quiz, @question, @user_feeling ) %>
+
+</div>
+<!-- 我要吐槽 end -->
+
+
+
+<hr>
+<div class="row" id="quiz-status-bar">
+  <div class="col-xs-2">
+    <%= link_to favorite_quiz_question_path(:quiz_id => @quiz, :id => @question.id), method: :post, remote: true do%>
+      <%= display_question_favorite(@not_favorite, @is_favorite, @quiz_type) %>
+    <% end %>
+  </div>
+  <%= link_to  quiz_questions_path(@quiz) do%>
+  <div class="col-xs-3">
+    <i class="fa fa-check-square-o" aria-hidden="true"></i> <span id="quiz_correct_answers_count"><%= @quiz_correct_answers_count %></span>
+  </div>
+  <div class="col-xs-3">
+    <i class="fa fa-window-close-o" aria-hidden="true"></i> <span id="quiz_wrong_answers_count"><%= @quiz_wrong_answers_count %></span>
+  </div>
+  <div class="col-xs-4">
+    <i class="fa fa-th" aria-hidden="true"></i> <span id="quiz_answered_question_count"><%= @quiz_answered_question_count %></span> / <span id="questions_count"><%= @quiz.questions.size %></span>
+  </div>
+  <% end %>
+</div>
+
+
+<hr>
 
 <div class="group post-nav-btn">
   <ul class="pager-custom">
@@ -44,30 +83,4 @@
       <% end %>
     </li>
   </ul>
-</div>
-
-
-
-
-
-
-
-<hr>
-<div class="row" id="quiz-status-bar">
-  <div class="col-xs-3">
-    <%= link_to favorite_quiz_question_path(:quiz_id => @quiz, :id => @question.id), method: :post, remote: true do%>
-      <%= display_question_favorite(@not_favorite, @is_favorite, @quiz_type) %>
-    <% end %>
-  </div>
-  <%= link_to  quiz_questions_path(@quiz) do%>
-  <div class="col-xs-2">
-    <i class="fa fa-check-square-o" aria-hidden="true"></i> <span id="quiz_correct_answers_count"><%= @quiz_correct_answers_count %></span>
-  </div>
-  <div class="col-xs-2">
-    <i class="fa fa-window-close-o" aria-hidden="true"></i> <span id="quiz_wrong_answers_count"><%= @quiz_wrong_answers_count %></span>
-  </div>
-  <div class="col-xs-5">
-    <i class="fa fa-th" aria-hidden="true"></i> <span id="quiz_answered_question_count"><%= @quiz_answered_question_count %></span> / <span id="questions_count"><%= @quiz.questions.size %></span>
-  </div>
-  <% end %>
 </div>
