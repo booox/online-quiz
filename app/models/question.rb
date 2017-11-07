@@ -13,6 +13,7 @@ class Question < ApplicationRecord
   has_many :favorite_users, :through => :favorites, :source => :user
 
   has_many :feelings
+  has_many :complains
 
   # has_many :quiz_questions
   # has_many :quizzes, :through => :quiz_questions

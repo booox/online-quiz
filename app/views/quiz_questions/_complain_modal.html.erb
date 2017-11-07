@@ -1,28 +1,66 @@
 <div class="modal fade modal-draggable message-modal-style" id="complainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog ui-draggable">
-    <div class="modal-content">
-      <div class="modal-header ui-draggable-handle">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="complainModalLabel">您对本题有什么想说的？</h4>
-      </div>
-      <form class="simple_form new_complain" id="new_complain" enctype="multipart/form-data" action="/complains" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
-        <div class="modal-body">
-          <div class="input-block">
-            <div class="form-group hidden complain_post_id"><input class="form-control hidden" value="956" type="hidden" name="complain[post_id]" id="complain_post_id"></div>
-            <div class="form-group text optional complain_content"><label class="control-label text optional" for="complain_content">槽点/反馈</label><textarea class="form-control text optional" name="complain[content]" id="complain_content"></textarea></div>
-            <!-- <div class="file-upload-block complain-img">
-              <div class="form-group file optional complain_image"><label class="control-label file optional" for="complain_image">上传截图(可选)</label><input class="file optional" type="file" name="complain[image]" id="complain_image"></div>
-            </div> -->
-            <div class="message-modal-footer">
-              <div class="row">
-                <span id="complain-submit-status-srea" class="pull-left"></span>
-              </div>
-              <a href="#" data-dismiss="modal">取消</a>
-              <input type="submit" name="commit" value="吐槽" class="btn btn-primary" id="complain-submit-btn" disabled="disabled" data-disable-with="吐槽...">
+    <div class="modal-dialog ui-draggable">
+        <div class="modal-content">
+            <div class="modal-header ui-draggable-handle">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="complainModalLabel">您对本题有什么想说的？</h4>
             </div>
-          </div>
+
+            <%= simple_form_for @complain, class: "simple_form new_complain", id: "new_complain", url: complain_quiz_question_path, remote: true do |f| %>
+
+              <div class="modal-body">
+                <div class="input-block">
+                  <div class="form-group hidden complain_question_id">
+                    <%= f.input :question_id, as: :hidden, input_html: { value: @question.id } %>
+                  </div>
+
+                  <div class="form-group text optional complain_content">
+                    <%= f.input :content, label: "槽点/反馈", as: :text, class: "form-control text optional", id: "complain_content" %>
+                  </div>
+
+                  <div class="message-modal-footer">
+                    <div class="row">
+                      <span id="complain-submit-status-srea" class="pull-left"></span>
+                    </div>
+                    <%= link_to "取消", "#", "data-dismiss": "modal" %>
+                    <%= f.button :submit, "吐槽", class: "btn btn-primary", id: "complain-submit-btn", "data-disable-with": "提交中...", disabled: "disabled"  %>
+                  </div>
+                </div>
+              </div>
+
+            <% end %>
+
+
+
+            <!-- <form class="simple_form new_complain" id="new_complain" enctype="multipart/form-data" action="/complains" accept-charset="UTF-8" data-remote="true" method="post">
+                <input name="utf8" type="hidden" value="✓">
+                <div class="modal-body">
+                    <div class="input-block">
+                        <div class="form-group hidden complain_post_id"><input class="form-control hidden" value="956" type="hidden" name="complain[post_id]" id="complain_post_id"></div>
+                        <div class="form-group text optional complain_content">
+                            <label class="control-label text optional" for="complain_content">槽点/反馈</label>
+                            <textarea class="form-control text optional" name="complain[content]" id="complain_content"></textarea>
+                        </div>
+                        <div class="file-upload-block complain-img">
+              <div class="form-group file optional complain_image"><label class="control-label file optional" for="complain_image">上传截图(可选)</label><input class="file optional" type="file" name="complain[image]" id="complain_image"></div>
+            </div>
+                        <div class="message-modal-footer">
+                            <div class="row">
+                                <span id="complain-submit-status-srea" class="pull-left"></span>
+                            </div>
+                            <a href="#" data-dismiss="modal">取消</a>
+                            <input type="submit" name="commit" value="吐槽" class="btn btn-primary" id="complain-submit-btn" disabled="disabled" data-disable-with="吐槽...">
+                        </div>
+                    </div>
+                </div>
+            </form> -->
+
+
+
+
+
         </div>
-      </form>
     </div>
-  </div>
 </div>

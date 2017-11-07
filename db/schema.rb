@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106033807) do
+ActiveRecord::Schema.define(version: 20171107054317) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20171106033807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uuid"], name: "index_categories_on_uuid", unique: true
+  end
+
+  create_table "complains", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "content"
+    t.boolean  "is_replied",  default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["question_id"], name: "index_complains_on_question_id"
+    t.index ["user_id"], name: "index_complains_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|

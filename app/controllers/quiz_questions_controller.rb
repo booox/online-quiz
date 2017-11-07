@@ -16,7 +16,9 @@ class QuizQuestionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
     @quiz_type = @quiz.quiz_type
+
     @user_feeling = Feeling.where(user_id: current_user.id, question_id: @question.id).first.try(:value)
+    @complain = Complain.new
 
     @question_answers = @question.answers.order("RANDOM()")
 
@@ -108,6 +110,20 @@ class QuizQuestionsController < ApplicationController
       Feeling.create(user_id: current_user.id, question_id: @question.id, value: @feeling_value)
     end
   end
+
+  def complain
+    # puts "test"
+    complain = Complain.create(user: current_user,
+                              question_id: params[:complain][:question_id],
+                              content: params[:complain][:content])
+    if complain.save
+      respond_to do |format|
+        format.js
+      end
+    end
+
+  end
+
 
 
   private

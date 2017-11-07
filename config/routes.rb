@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         post :hide_and_publish
       end
     end
+    resources :complains
   end
 
   resources :quizzes do
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
         post :create_detail
         post :favorite
         post :feeling
+        post :complain
       end
     end
 
@@ -34,5 +36,9 @@ Rails.application.routes.draw do
       delete :reset
     end
   end
+
+  resources :complains
+
+
 
 end
