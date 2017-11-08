@@ -1,0 +1,55 @@
+<div class="message-container">
+    <div class="heading">
+        <div class="title">
+            <a href="/conversations">
+                <h1 class="title">我的站内信</h1>
+            </a>
+            <h1 class="subject">
+                <span class="split">|</span><%= @newest_message.subject %></h1>
+        </div>
+        <div class="back-link">
+            <a class="btn btn-default" id="reply-conversation-btn" data-toggle="modal" data-target="#reply-message-modal" href="#">回复</a>
+        </div>
+    </div>
+    <div class="messages-list">
+      <% @conversation.messages.each do |message| %>
+
+          <div class="message-item">
+              <div class="title-line">
+                  <p class="sender">
+                      <span class="username"><%= message.sender.email %></span>
+                  </p>
+                  <p class="time"><%= message.created_at.strftime('%Y-%m-%d') %></p>
+              </div>
+              <div class="content">
+                  <div class="text">
+                    <% if message == @first_message %>
+
+                      <p class="user-line">Hello，<%= message.sender.email %></p>
+
+                      <p class="content-line">
+                          <%= message.content %>
+                      </p>
+                      <a href="" class="complain-image"><img src=""></a>
+                      <p class="split-line">＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝</p>
+
+                      <p class="quote-line">以下是你的吐槽/反馈内容</p>
+                      <blockquote>
+                          <p>课题：《<%= @quiz.title %>》</p>
+                          <p>问题：<%= @question.title %>
+                          </p>
+                          <p><%= @complain.content %></p>
+                      </blockquote><br>
+                      <% else %>
+                        <%= message.content %>
+                        <a href="" class="complain-image"><img src=""></a>
+                      <% end %>
+                  </div>
+              </div>
+          </div>
+
+      <% end %>
+
+
+    </div>
+</div>

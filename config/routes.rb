@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       end
     end
     resources :complains
+    resources :conversations do
+      resources :messages
+    end
   end
 
   resources :quizzes do
@@ -38,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   resources :complains
+  resources :conversations
 
 
 

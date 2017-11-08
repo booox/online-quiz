@@ -1,0 +1,15 @@
+<% if @complain.present? %>
+<div id="message_form">
+  <%= simple_form_for [:admin, @conversation] do |g| %>
+    <%= g.input :complain_id, as: :hidden, input_html: { value: params[:complain_id]} %>
+    <%= g.simple_fields_for :messages, @message do |f| %>
+      <%= f.input :subject, input_html: { value: "吐槽反馈" } %>
+      <%= f.input :content, as: :text, input_html: { value: params[:complain_id] } %>
+      <%= f.input :recipient_id, as: :hidden, input_html: { value: @complain.user.id } %>
+      <%= f.input :sender_id, as: :hidden, input_html: { value: current_user.id } %>
+    <% end %>
+
+    <%= g.button :submit %>
+  <% end %>
+</div>
+<% end %>

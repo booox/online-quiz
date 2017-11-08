@@ -65,6 +65,7 @@ group :development do
 
   gem 'awesome_rails_console'
   gem 'faker'
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

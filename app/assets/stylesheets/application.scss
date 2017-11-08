@@ -203,3 +203,367 @@
     background-color: #4285F4;
     border-color: #4285F4
 }
+
+
+
+// for conversations
+
+.message-container {
+    display: block;
+    width: 100%;
+    min-height: 500px;
+    max-width: 960px;
+    border-radius: 2px;
+    padding: 40px 30px 40px;
+    box-sizing: border-box;
+    margin: 20px auto 40px;
+    background: #fff;
+    border: 1px solid rgba(151,151,151,0.31);
+    box-shadow: 0 1px 13px 0 rgba(0,0,0,0.07)
+}
+
+.message-container .btn-default {
+    width: 70px;
+    height: 26px;
+    padding: 0;
+    text-align: center;
+    line-height: 24px;
+    border: 1px solid #00D193;
+    border-radius: 4px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #00D193;
+    letter-spacing: 3px
+}
+
+.message-container .btn-default.active,.message-container .btn-default.focus,.message-container .btn-default:active,.message-container .btn-default:focus,.message-container .btn-default:hover {
+    background-color: #00D193;
+    border: 1px solid #00D193;
+    color: #fff;
+    transition: background-color 0.4s ease
+}
+
+.message-container .heading {
+    width: 100%;
+    height: 50px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(189,189,189,0.78);
+    margin-bottom: 20px;
+    padding-top: 12px
+}
+
+.message-container .heading a h1,.message-container .heading h1 {
+    font-size: 1.3em;
+    line-height: 28px;
+    color: #00D193;
+    display: inline-block;
+    width: auto
+}
+
+.message-container .heading h1.subject {
+    color: #4A4A4A
+}
+
+.message-container .heading span.split {
+    padding: 0 8px;
+    color: #4A4A4A
+}
+
+.message-container .heading .title {
+    float: left;
+    display: block;
+    width: auto
+}
+
+.message-container .heading .back-link {
+    display: block;
+    width: auto;
+    float: right
+}
+
+.message-container .heading .back-link a.back {
+    color: #BDBDBD
+}
+
+.message-container .heading .back-link a.back:hover {
+    color: #757575
+}
+
+.message-container .heading-line {
+    height: 60px;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative
+}
+
+.message-container .heading-line .right-btn-block {
+    position: absolute;
+    right: 10px;
+    bottom: 0
+}
+
+.message-container .conversations-list ul.lists {
+    list-style: none
+}
+
+.message-container .conversations-list ul.lists a {
+    display: flex
+}
+
+.message-container .conversations-list ul.lists li.conversation-item {
+    margin: 10px 0;
+    background-color: rgba(248,249,250,0.72);
+    height: 65px;
+    line-height: 65px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #424242;
+    display: block;
+    overflow: hidden
+}
+
+.message-container .conversations-list ul.lists li.conversation-item a {
+    display: inline;
+    color: #424242
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .sender-name {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 170px;
+    padding-right: 30px;
+    overflow: hidden
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .content {
+    width: calc(100% - 360px);
+    overflow: hidden
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .message-body,.message-container .conversations-list ul.lists li.conversation-item .subject {
+    width: auto;
+    display: inline;
+    color: #424242
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .message-body * {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    word-break: keep-all;
+    font-size: 14px;
+    color: #838B8D
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .status {
+    width: 40px
+}
+
+.message-container .conversations-list ul.lists li.conversation-item .date {
+    float: right;
+    width: 120px;
+    text-align: right
+}
+
+.message-container .conversations-list ul.lists li.conversation-item:hover {
+    background-color: rgba(221,221,221,0.35)
+}
+
+.message-container .messages-list {
+    margin: 0 -30px
+}
+
+.message-container .messages-list .message-item .title-line {
+    height: 50px
+}
+
+.message-container .messages-list .message-item .title-line p.sender {
+    box-sizing: border-box;
+    max-width: 320px;
+    height: 32px;
+    line-height: 32px;
+    background: #00D193;
+    display: block;
+    width: auto;
+    padding: 2px 10px 2px 55px;
+    float: left;
+    font-size: 16px
+}
+
+.message-container .messages-list .message-item .title-line p.sender span.username {
+    color: #fff
+}
+
+.message-container .messages-list .message-item .title-line p.time {
+    display: block;
+    float: right;
+    width: auto;
+    color: #9B9B9B;
+    margin-right: 30px;
+    line-height: 32px
+}
+
+.message-container .messages-list .message-item .content {
+    margin: 0 30px 15px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(155,154,155,0.34)
+}
+
+.message-container .messages-list .message-item .content .text {
+    padding: 10px 0 0 50px;
+    text-align: justify
+}
+
+.message-container .messages-list .message-item .content .text p.user-line {
+    font-weight: 500;
+    margin-bottom: 15px
+}
+
+.message-container .messages-list .message-item .content .text p.split-line {
+    margin: 15px 0
+}
+
+.message-container .messages-list .message-item .content .text p.quote-line {
+    margin-left: 10px
+}
+
+.message-container .messages-list .message-item .content .text p.content-line {
+    line-height: 22px
+}
+
+.message-container .messages-list .message-item .content .text p.sender {
+    line-height: 28px
+}
+
+.message-container .messages-list .message-item .content .text p.sender .username {
+    font-size: 16px;
+    font-weight: 500;
+    color: #37474F
+}
+
+.message-container .messages-list .message-item .content .text p.sender .label {
+    padding: 1px 2px;
+    font-size: 10px;
+    margin-right: 15px
+}
+
+.message-container .messages-list .message-item .content .text blockquote {
+    background-color: rgba(236,239,241,0.85);
+    width: auto;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0 10px 20px;
+    width: auto;
+    display: inline-block;
+    max-width: 100%
+}
+
+.message-container .messages-list .message-item .content .text blockquote p {
+    margin: 3px 0;
+    width: auto;
+    word-wrap: break-word;
+    color: #666
+}
+
+@media (max-width: 991px) {
+    .message-container {
+        max-width:100%;
+        border-radius: 0;
+        padding: 40px 30px;
+        margin: 0 0 40px;
+        border: none;
+        box-shadow: none
+    }
+}
+
+@media (max-width: 844px) {
+    .message-container .conversations-list ul.lists li.conversation-item .date {
+        display:none
+    }
+}
+
+@media (max-width: 730px) {
+    .message-container .conversations-list ul.lists li.conversation-item .sender-name {
+        display:none
+    }
+
+    .message-container .messages-list .message-item .content .text {
+        word-break: break-all
+    }
+
+    .message-container .heading {
+        display: block;
+        height: auto
+    }
+
+    .message-container .heading span.split {
+        display: none
+    }
+
+    .message-container .heading .title,.message-container .heading a h1.title,.message-container .heading h1.subject {
+        float: none;
+        display: block;
+        width: 100%
+    }
+
+    .message-container .heading .back-link {
+        display: block;
+        text-align: right;
+        margin-top: 15px;
+        width: 100%;
+        float: none
+    }
+}
+
+@media (max-width: 450px) {
+    .message-container {
+        padding:30px 15px
+    }
+}
+
+
+.label-unread,.label-read {
+    padding: 2px 5px;
+    background-color: #00C851;
+    color: #fff;
+    font-size: 12px;
+    transform: scale(0.833);
+    font-weight: 400
+}
+
+.label-unread {
+    background-color: #E74D45
+}
+
+.message-container .conversations-list ul.lists a {
+    display: flex;
+}
+a:active, a:hover, a:link, a:visited {
+    text-decoration: none;
+}
+a {
+    color: #03A9F4;
+}
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
+    margin: 0;
+    padding: 0;
+    border: 0
+}
+
+.message-container .messages-list .message-item .title-line p.sender {
+    box-sizing: border-box;
+    max-width: 320px;
+    height: 32px;
+    line-height: 32px;
+    background: #00D193;
+    display: block;
+    width: auto;
+    padding: 2px 10px 2px 55px;
+    float: left;
+    font-size: 18px;
+}

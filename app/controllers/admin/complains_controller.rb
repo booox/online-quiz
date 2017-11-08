@@ -3,7 +3,7 @@ class Admin::ComplainsController < ApplicationController
   before_action :admin_required
 
   def index
-    @complains = Complain.all
+    @complains = Complain.order(is_replied: :asc, created_at: :desc)
   end
 
 end

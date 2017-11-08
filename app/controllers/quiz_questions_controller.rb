@@ -112,9 +112,9 @@ class QuizQuestionsController < ApplicationController
   end
 
   def complain
-    # puts "test"
     complain = Complain.create(user: current_user,
                               question_id: params[:complain][:question_id],
+                              quiz_id: params[:complain][:quiz_id],
                               content: params[:complain][:content])
     if complain.save
       respond_to do |format|

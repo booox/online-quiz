@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: quizzes
+#
+#  id              :integer          not null, primary key
+#  title           :string
+#  category_id     :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  questions_count :integer          default(0)
+#  is_hidden       :boolean          default(TRUE)
+#  quiz_type       :string           default("")
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the

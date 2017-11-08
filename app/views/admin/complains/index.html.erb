@@ -14,11 +14,12 @@
     <% @complains.each do |complain| %>
     <tr>
       <td><%= complain.user.email %></td>
-      <td><%= link_to complain.question.title, admin_question_path(complain.question) %></td>
+      <td><%= link_to complain.question.title, edit_admin_question_path(complain.question) %></td>
       <td><%= complain.content %></td>
       <td>
-        <%= link_to "Edit", edit_admin_complain_path(complain), class: "btn btn-primary btn-xs" %>
-        <%= link_to "Delete", admin_complain_path(complain), method: :delete, class: "btn btn-danger btn-xs" %>
+        <%= display_complain_conversation(complain) %>
+        <%#= link_to "Reply", new_admin_conversation_path(complain_id: complain.id ), class: "btn btn-primary btn-xs" %>
+        <%= link_to "Delete", admin_complain_path(complain), method: :delete, class: "btn btn-default btn-xs" %>
       </td>
     </tr>
     <% end %>

@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  category_id :integer
+#  type_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Question < ApplicationRecord
 
   validates_presence_of :title, :category_id
@@ -7,7 +19,7 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: :all_blank
 
   belongs_to :category
-  belongs_to :type
+  # belongs_to :type
 
   has_many :favorites
   has_many :favorite_users, :through => :favorites, :source => :user
