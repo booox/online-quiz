@@ -28,8 +28,15 @@ class Admin::ConversationsController < ApplicationController
 
     if @conversation.save!
       # redirect_to :back
-      Complain.find(complain_id).update(is_replied: true)
+      complain = Complain.find(complain_id)
+      complain.update(is_replied: true)
       redirect_to admin_complains_path, notice: " 吐槽回复成功"
+
+      notification_user = complain.user
+      notification_subject = "吐槽反馈"
+      notification_message = "您的吐槽，管理员已有回复，请到收件箱中查看。"
+      Notification.send_notification(notification_user, notification_subject, notification_message)
+
     else
       render :new
     end

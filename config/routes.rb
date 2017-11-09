@@ -42,6 +42,14 @@ Rails.application.routes.draw do
 
   resources :complains
   resources :conversations
+  resources :notifications, only: [:index] do
+    member do
+      post :mark_as_read
+    end
+     collection do
+      post :mark_all_as_read
+     end
+  end
 
 
 

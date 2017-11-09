@@ -1,0 +1,14 @@
+var notification_id = "<%= @notification_id %>";
+var not_read_notifications_count = "<%= notification_count %>";
+
+$( "#mark-as-read-" + notification_id ).addClass("hide");
+$( "#notification-" + notification_id ).removeClass("label-unread").addClass("label-read");
+$( "#notification-" + notification_id ).text("已读");
+
+if(not_read_notifications_count > 0){
+  $( "#not_read_notifications_count" ).text(not_read_notifications_count);
+}else{
+  $( ".fa-bell" ).removeClass("orange");
+  $( "#not_read_notifications_count" ).text("");
+  $( "#mark-all-as-read" ).addClass("hide");
+}

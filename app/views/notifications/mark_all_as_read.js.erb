@@ -1,0 +1,9 @@
+var not_read_notifications_count = "<%= @not_read_notifications_count %>";
+
+$( "#mark-all-as-read" ).addClass("hide");
+
+$( "[id^=notification-]" ).removeClass("label-unread").addClass("label-read");
+$( "[id^=notification-]" ).text("已读");
+$( "[id^=mark-as-read-]" ).addClass("hide");
+$( "#not_read_notifications_count" ).text(not_read_notifications_count);
+$( ".fa-bell" ).removeClass("orange");

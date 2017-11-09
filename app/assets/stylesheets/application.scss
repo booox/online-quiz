@@ -567,3 +567,37 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
     float: left;
     font-size: 18px;
 }
+
+.notification-list .mark-as-read{
+  float: right;
+  width: 120px;
+  text-align: right;
+  a.btn-sm :link{
+    color: #ffffff;
+  }
+}
+
+.hide{
+  display: none;
+}
+
+.notification-list .notification-item{
+    margin: 10px 0;
+    background-color: rgba(248, 249, 250, 0.72);
+    height: 65px;
+    line-height: 65px;
+    // width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 14px;
+    // padding-left: 15px;
+    // padding-right: 15px;
+    color: #424242;
+    // display: block;
+    overflow: hidden;
+}
+
+
+.orange{
+  color: #f86335;
+}

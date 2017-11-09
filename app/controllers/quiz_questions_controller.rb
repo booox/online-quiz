@@ -117,6 +117,12 @@ class QuizQuestionsController < ApplicationController
                               quiz_id: params[:complain][:quiz_id],
                               content: params[:complain][:content])
     if complain.save
+
+      notification_message = "A new Complain is created.
+          Please go to this <a href=#{admin_complains_path}>link</a> to handle it.".html_safe
+      admin = User.where(is_admin: true).first
+      Notification.send_notification(admin, "New Complain Created", notification_message)
+
       respond_to do |format|
         format.js
       end

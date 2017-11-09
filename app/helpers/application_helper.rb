@@ -29,4 +29,13 @@ module ApplicationHelper
     end
   end
 
+  def display_notification_count(notification_count)
+    if notification_count > 0
+      concat(content_tag(:i, nil, class: 'fa fa-bell orange', 'aria-hidden': true))
+      content_tag(:span, "#{notification_count}", id: "not_read_notifications_count", class: "orange")
+    else
+      content_tag(:i, nil, class: 'fa fa-bell', 'aria-hidden': true)
+    end
+  end
+
 end

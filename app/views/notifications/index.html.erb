@@ -1,0 +1,29 @@
+<div class="message-container">
+    <div class="heading">
+        <div class="title">
+            <%= link_to notifications_path do %>
+              <h1 class="title">我的提醒</h1>
+            <% end %>
+        </div>
+        <div class="back-link">
+            <%= display_notification_mark_all_as_read(@not_read_notifications_count) %>
+        </div>
+    </div>
+    <div class="notification-list">
+      <% @notifications.each do |notification| %>
+        <div class="row notification-item">
+          <div class="col-xs-3">
+            <span class="status"><%= display_notification_status(notification) %></span>
+            <span class="sender-name"><%= notification.subject %></span>
+          </div>
+          <div class="col-xs-6">
+            <%= notification.content %>
+          </div>
+          <div class="col-xs-3">
+            <span class="mark-as-read"><%= display_notification_mark_as_read(notification) %></span>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+</div>
