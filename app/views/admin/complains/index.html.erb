@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>用户名</td>
-      <th>吐槽来源</td>
-      <th>吐槽反馈</td>
+      <th>吐槽问题</td>
+      <th>吐槽内容</td>
       <th>操作</td>
     </tr>
   </thead>
@@ -18,7 +18,6 @@
       <td><%= complain.content %></td>
       <td>
         <%= display_complain_conversation(complain) %>
-        <%#= link_to "Reply", new_admin_conversation_path(complain_id: complain.id ), class: "btn btn-primary btn-xs" %>
         <%= link_to "Delete", admin_complain_path(complain), method: :delete, class: "btn btn-default btn-xs" %>
       </td>
     </tr>
