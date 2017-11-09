@@ -36,9 +36,8 @@
                       <p class="quote-line">以下是你的吐槽/反馈内容</p>
                       <blockquote>
                           <p>课题：《<%= @quiz.title %>》</p>
-                          <p>问题：<%= @question.title %>
-                          </p>
-                          <p><%= @complain.content %></p>
+                          <p>问题：<%= @question.title %></p>
+                          <p>槽点：<%= @complain.content %></p>
                       </blockquote><br>
                       <% else %>
                         <%= message.content %>

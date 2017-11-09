@@ -20,6 +20,4 @@ class Conversation < ApplicationRecord
   def first_message
     messages.order("created_at ASC").first
   end
-
-
 end

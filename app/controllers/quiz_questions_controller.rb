@@ -118,19 +118,15 @@ class QuizQuestionsController < ApplicationController
                               content: params[:complain][:content])
     if complain.save
 
-      notification_message = "A new Complain is created.
-          Please go to this <a href=#{admin_complains_path}>link</a> to handle it.".html_safe
+      notification_message = "有新的吐槽反馈，请到<吐槽管理>中处理."
       admin = User.where(is_admin: true).first
-      Notification.send_notification(admin, "New Complain Created", notification_message)
+      Notification.send_notification(admin, "吐槽反馈", notification_message)
 
       respond_to do |format|
         format.js
       end
     end
-
   end
-
-
 
   private
 

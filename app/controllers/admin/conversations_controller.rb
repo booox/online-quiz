@@ -17,13 +17,12 @@ class Admin::ConversationsController < ApplicationController
     complain_id = params[:complain_id]
     if complain_id.present?
       @complain = Complain.find(complain_id)
+      @complain_user = @complain.user
     end
   end
 
   def create
     @conversation = Conversation.new(conversation_params)
-    # @conversation.messages.build
-    # puts "complain_id: #{params[:conversation][:complain_id]}"
     complain_id = params[:conversation][:complain_id]
 
     if @conversation.save!
