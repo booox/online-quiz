@@ -2,16 +2,16 @@ setTimeout(function(){
   $("#complain-submit-btn").prop("disabled", true);
   $("#complain-submit-btn").val("提交中...");
 
-}, 500);
+}, 10);
 
 
 setTimeout(function(){
   $('#complain-submit-status-srea').flash_message({
           text: "您的吐槽/反馈已经收到，我们会及时通过站内信给您回复",
           how: 'append',
-          time: 3000
+          time: 1000
   });
-}, 1500);
+}, 500);
 
 
 
@@ -24,4 +24,4 @@ setTimeout(function(){
     // $(".posts.posts-show").css("overflow", "auto");
     // $("#complain_image").val("");
     $("#complain_content").val("");
-}, 2500);
+}, 1500);

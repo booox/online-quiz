@@ -1,0 +1,46 @@
+setTimeout(function(){
+  $("#send-message-btn-refresh").val("提交中...");
+  $("#send-message-btn-refresh").prop("disabled", true);
+
+}, 10);
+
+setTimeout(function(){
+  $('#message-submit-status-srea').flash_message({
+          text: "您的回复已经成功发送",
+          how: 'append',
+          time: 1000
+  });
+}, 500);
+
+
+
+
+setTimeout(function(){
+  $('#reply-message-modal').modal('hide');
+  $("#message_content").val("");
+  $("#send-message-btn-refresh").prop("disabled", false);
+  $("#send-message-btn-refresh").val("发送");
+
+}, 1500);
+
+
+// setTimeout(function(){
+//   $('#complain-submit-status-srea').flash_message({
+//           text: "您的吐槽/反馈已经收到，我们会及时通过站内信给您回复",
+//           how: 'append',
+//           time: 3000
+//   });
+// }, 1500);
+//
+//
+//
+//
+// setTimeout(function(){
+//     $('#complainModal').modal('hide');
+//     $("#complain-submit-btn").val("吐槽");
+//     $("#complain-submit-btn").prop("disabled", true);
+//     $("#complainModal").find("#complainModalLabel").html("您对本篇教程有什么想说的？");
+//     // $(".posts.posts-show").css("overflow", "auto");
+//     // $("#complain_image").val("");
+//     $("#complain_content").val("");
+// }, 2500);

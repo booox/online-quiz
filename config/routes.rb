@@ -41,7 +41,11 @@ Rails.application.routes.draw do
   end
 
   resources :complains
-  resources :conversations
+  resources :conversations, only: [:index, :show] do
+    member do
+      post :reply
+    end
+  end
   resources :notifications, only: [:index] do
     member do
       post :mark_as_read
