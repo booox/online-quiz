@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       post :reply
     end
   end
+
   resources :notifications, only: [:index] do
     member do
       post :mark_as_read
@@ -57,6 +58,8 @@ Rails.application.routes.draw do
       post :mark_all_as_read
      end
   end
+
+  resource :user
 
 
 

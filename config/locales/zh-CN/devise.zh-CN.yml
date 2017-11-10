@@ -44,11 +44,16 @@ zh-CN:
       updated: '您的密码已修改成功，您现在已登录.'
       updated_not_active: '您的密码已修改成功.'
       send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件.'
+      user:
+        no_token: 若需访问本页面，请使用重置密码邮件中网址链接，并确保该网址完整。
     confirmations:
       send_instructions: '几分钟后，您将收到确认帐号的电子邮件.'
       confirmed: '您的帐号已经确认，您现在已登录.'
       send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封确认账号的邮件.'
     registrations:
+      current_password: '原密码'
+      password: '新密码'
+      password_confirmation: '确认新密码'
       signed_up: '欢迎您！您已注册成功.'
       updated: '帐号资料更新成功.'
       destroyed: '再见！您的帐户已成功注销。我们希望很快可以再见到您.'

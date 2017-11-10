@@ -1,0 +1,85 @@
+<div class="dashboard-content">
+    <div class="account-content">
+        <div class="account-tab col-xs-12">
+            <ul class="nav nav-tabs">
+
+                <li class="active">
+                  <%= link_to edit_user_path do %>
+                    <i class="fa fa-user" aria-hidden="true"></i> <%= t("site.account.profile.title") %>
+                  <% end %>
+
+                </li>
+                <li>
+                  <%= link_to edit_user_registration_path do %>
+                    <i class="fa fa-key" aria-hidden="true"></i> <%= t("site.account.password.title") %>
+                  <% end %>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="account-profile">
+          <%= simple_form_for @user, class: "simple_form edit_user" do |g| %>
+            <div class="input-block">
+              <%#= g.input :complain_id, as: :hidden, input_html: { value: params[:complain_id]} %>
+              <%= g.simple_fields_for :profile, @profile do |f| %>
+                <%#= f.input :nickname, input_html: { value: "吐槽反馈" } %>
+                <%= f.input :nickname, label: t("site.account.profile.nickname") %>
+                <%= f.input :real_name, label: t("site.account.profile.real_name") %>
+                <%= f.input :organization, label: t("site.account.profile.organization") %>
+                <%= f.input :department, label: t("site.account.profile.department") %>
+                <%= f.input :wechat, label: t("site.account.profile.wechat") %>
+                <%= f.input :qq, label: t("site.account.profile.qq") %>
+                <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+              <% end %>
+
+            </div>
+            <%= g.button :submit, t("site.account.profile.submit") %>
+          <% end %>
+        </div>
+
+
+
+        <!-- <div class="account-profile">
+            <form class="simple_form edit_user" id="edit_user_775" enctype="multipart/form-data" action="/account/users/775" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="NBL0XaIZuBVxp489D+y/2OhBWCMMf22TwHrifCm51wDEGJut7uw62ORk8uE2kU+U9VLY+O619evB1aGjKf4bVQ==">
+                <div class="input-block">
+                    <span>个人头像</span>
+                    <img src="https://quanzhan-production.s3.amazonaws.com/uploads/user/image/775/thumb_deliberate_practice_1x.png" class="user-img">
+                    <div class="user-img-upload">
+                        <div class="form-group file optional user_image"><input class="file optional" type="file" name="user[image]" id="user_image"></div>
+                    </div>
+                    <span>登录邮箱</span>
+                    <span class="email">lzx_wb@sina.com</span>
+                    <br><br>
+                    <span>用户名</span>
+                    <div class="form-group string optional user_username"><input class="form-control string optional" type="text" value="liuzx" name="user[username]" id="user_username"></div>
+
+                    <div class="form-group">
+                        <span>Github 用户名</span>
+                        <div class="input-group">
+                            <div class="input-group-addon">https://github.com/</div>
+                            <div class="form-group string optional user_github"><input class="form-control string optional" placeholder="您的github用户名" type="text" value="Booox" name="user[github]" id="user_github"></div>
+                        </div>
+                    </div>
+
+                    <span>Logdown 网址</span>
+                    <div class="form-group string optional user_logdown"><input class="form-control string optional" placeholder="http://您的logdown用户名-blog.logdown.com" type="text" value="http://booox.logdown.com/" name="user[logdown]" id="user_logdown"></div>
+
+                    <span>Slack ID</span>
+                    <div class="form-group string optional user_slack"><input class="form-control string optional" type="text" value="lzx_work@sina.com" name="user[slack]" id="user_slack"></div>
+
+                    <span>微信号</span>
+                    <div class="form-group string optional user_wechat"><input class="form-control string optional" placeholder="让组织可以找到你" type="text" value="lzx-wxh" name="user[wechat]" id="user_wechat"></div>
+                    <span>微信昵称: 暂未绑定微信号</span>
+                    <p>提示：您可以在微信浏览器中登录之后，在此页面绑定设置绑定</p>
+                    <br>
+
+                    </div>
+                    <input type="submit" name="commit" value="更新资料" class="btn btn-default" id="submit-user-info" data-disable-with="更新资料">
+
+                </div>
+            </form>
+-->
+
+        </div>
+    </div>

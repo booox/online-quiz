@@ -1,0 +1,338 @@
+.dashboard-content {
+    margin: 25px auto;
+    max-width: 1240px;
+    min-height: 100%
+}
+
+.account-content {
+    width: 100%;
+    max-width: 1240px;
+    background-color: #fff;
+    padding: 20px 0 30px;
+    min-height: 550px;
+    margin: 0 auto;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.25)
+}
+
+
+.account-tab {
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative
+}
+
+.account-tab .nav {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    width: auto;
+    height: auto
+}
+
+.account-tab .nav>li {
+    position: relative;
+    display: block
+}
+
+.account-tab .nav>li>a {
+    margin-top: 8px;
+    position: relative;
+    display: block;
+    padding-bottom: 8px
+}
+
+.account-tab .nav>li>a:focus,.account-tab .nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent
+}
+
+.account-tab .nav-tabs {
+    border-bottom: 2px solid #DEDEDE
+}
+
+.account-tab .nav-tabs>li {
+    float: left;
+    margin-right: 3px;
+    margin-bottom: -2px
+}
+
+.account-tab .nav-tabs>li>a {
+    margin-right: 0;
+    line-height: 1.42857143;
+    border: 0;
+    border-radius: 0;
+    color: #333;
+    font-size: 1.142em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid transparent;
+    padding: 0 10px 8px
+}
+
+.account-tab .nav-tabs>li>a:hover {
+    border-color: #4ae5b5
+}
+
+.account-tab .nav-tabs>li.active>a,.account-tab .nav-tabs>li.active>a:focus,.account-tab .nav-tabs>li.active>a:hover {
+    cursor: default;
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid #1ecd97
+}
+
+@media (max-width: 950px) {
+    .account-tab .nav>li>a {
+        margin-top:18px !important;
+        position: relative;
+        display: block;
+        padding-bottom: 8px
+    }
+}
+
+
+.account-content .account-profile {
+    clear: both;
+    width: auto;
+    padding-top: 20px;
+    margin-left: 30px
+}
+
+.account-content .account-profile .user-img {
+    margin-bottom: 15px;
+    border: 1px solid #dedede;
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3)
+}
+
+.account-content .account-profile p.wechat-hint {
+    clear: both;
+    color: #888;
+    margin-bottom: 35px
+}
+
+.account-content .account-profile #package {
+    border-left: 2px solid #1ecd97;
+    padding: 6px 0 6px 15px;
+    margin: 25px 0 35px
+}
+
+.account-content .account-profile #package p.tips {
+    font-size: 14px;
+    color: #5D4037;
+    font-weight: 600
+}
+
+.account-content .account-profile #package span {
+    line-height: 30px;
+    margin-top: 10px
+}
+
+.account-content .account-profile #package .form-group {
+    margin-bottom: 0
+}
+
+.account-content .account-profile .input-block {
+    width: 100%;
+    max-width: 450px;
+    padding-right: 10px
+}
+
+.account-content .account-profile .input-block span {
+    font-size: 1em;
+    display: block;
+    line-height: 40px;
+    color: #666
+}
+
+.account-content .account-profile .input-block span.email {
+    font-size: 16px;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: -10px;
+    color: #333
+}
+
+.account-content .account-profile .input-block span.select-addr {
+    margin: 0 0 5px !important;
+    line-height: 20px !important
+}
+
+.account-content .account-profile .input-block .city-group {
+    margin-bottom: 10px
+}
+
+.account-content .account-profile .input-block .city-group select {
+    background-color: #E0E0E0;
+    margin-bottom: 8px
+}
+
+.account-content .account-profile .input-block .user-img-upload {
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+    color: #666
+}
+
+.account-content .account-profile .input-block .user-img-upload .form-group {
+    margin-bottom: 5px
+}
+
+.account-content .account-profile .input-block .user-img-upload input {
+    outline: none !important;
+    padding: 0;
+    width: auto
+}
+
+.account-content .account-profile .input-block .user-img-upload ::-webkit-file-upload-button {
+    background: #03A9F4;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    font-size: 12px;
+    line-height: 20px;
+    width: 100px;
+    outline: none !important;
+    letter-spacing: 1px;
+    transform: scale(0.9)
+}
+
+.account-content .account-profile .input-block .title {
+    display: block;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.account-content .account-profile .input-block .des {
+    display: block;
+    line-height: 50px;
+    color: #666;
+    font-size: 15px
+}
+
+.account-content .account-profile .input-block .btn-success {
+    background-color: #1ecd97;
+    border-color: #1ecd97;
+    outline: none
+}
+
+.account-content .account-profile .input-block .btn-success:hover {
+    background-color: #21e0a3;
+    border-color: #1ecd97
+}
+
+.account-content .account-profile .input-block .form-control {
+    border-radius: 2px
+}
+
+.account-content .account-profile .input-block .user_wechat_is_public {
+    height: 10px;
+    margin-top: -20px
+}
+
+.account-content .account-profile .input-block .user_wechat_is_public .radio {
+    width: 40%;
+    float: left
+}
+
+.account-content .account-profile .input-block .user_wechat_is_public label[for=user_wechat_is_public_false] {
+    margin-top: 15px
+}
+
+.account-content .account-profile .input-block .user_wechat_is_public span.radio {
+    line-height: 22px !important
+}
+
+.account-content .account-profile .form-actions {
+    margin-top: 18px
+}
+
+.account-content .account-profile .slack-invitation {
+    margin-top: 10px;
+    max-width: 650px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #dedede
+}
+
+.account-content .account-profile .slack-invitation li,.account-content .account-profile .slack-invitation p {
+    font-size: 1.1em;
+    line-height: 20px;
+    margin-bottom: 10px
+}
+
+.account-content .account-profile .slack-invitation .email {
+    color: #f44336;
+    font-weight: 400
+}
+
+
+@media (max-width: 510px) {
+    .account-content {
+        max-width:100%;
+        box-shadow: none
+    }
+
+    .account-content .account-password,.account-content .account-profile {
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-right: 15px;
+        box-sizing: border-box
+    }
+
+    .account-content .account-tab .nav-tabs>li {
+        margin-right: 10px
+    }
+
+    .account-content .account-tab .nav-tabs>li>a {
+        line-height: 1em;
+        font-size: 1em;
+        letter-spacing: 0.1px;
+        padding: 0 2px 8px
+    }
+
+    .account-content .account-profile .input-block {
+        max-width: 100%;
+        padding-right: 0
+    }
+}
+
+
+
+.account-content .account-password {
+    clear: both;
+    width: auto;
+    padding-top: 20px;
+    margin-left: 30px
+}
+
+.account-content .account-password .input-block {
+    width: 100%;
+    max-width: 440px
+}
+
+.account-content .account-password .input-block span {
+    display: block;
+    line-height: 40px;
+    color: #666
+}
+
+.account-content .account-password .form-actions {
+    margin-top: 18px
+}
+
+
+// .account-content .account-password .input-block .help-block,.account-content .account-profile .input-block .help-block {
+//     font-size: 0.9em;
+//     font-weight: 400;
+//     color: #a94442
+// }
