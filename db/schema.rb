@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108145743) do
+ActiveRecord::Schema.define(version: 20171110075307) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 20171108145743) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "real_name"
+    t.string   "organization"
+    t.string   "department"
+    t.string   "wechat"
+    t.string   "qq"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

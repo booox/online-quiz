@@ -29,8 +29,16 @@ zh-CN:
       timeout: '您已登录超时，请重新登录.'
       inactive: '您还没有激活帐户.'
     sessions:
-      signed_in: '登录成功.'
+      log_in: '登录'
+      sign_up: '注册'
+      remember_me: '记住我'
+      email: '邮箱'
+      password: '密码'
+      password_confirmation: '确认密码'
+      characters_minimum: '个最少字符'
+      forgot_password: '忘记密码?'
       signed_out: '退出成功.'
+      signed_in: 登录成功
     passwords:
       send_instructions: '几分钟后，您将收到重置密码的电子邮件.'
       updated: '您的密码已修改成功，您现在已登录.'
