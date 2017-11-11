@@ -3,8 +3,8 @@ var choice_id = "<%= @choice_id %>";
 
 $("[id^=answer-]").removeAttr("href");  // disable the answers' links when clicked
 
-var quiz_answered_question_count = parseInt($( "#quiz_answered_question_count" ).text(), 10) + 1 ;
-$( "#quiz_answered_question_count" ).text( quiz_answered_question_count );
+var quiz_answered_questions_count = parseInt($( "#quiz_answered_questions_count" ).text(), 10) + 1 ;
+$( "#quiz_answered_questions_count" ).text( quiz_answered_questions_count );
 
 if(right_answer_id == choice_id){   // right answer
   $("#answer-<%= @choice_id %>").addClass('list-group-item-success');

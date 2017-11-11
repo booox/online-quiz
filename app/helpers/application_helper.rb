@@ -38,4 +38,8 @@ module ApplicationHelper
     end
   end
 
+  def progressBar(num, total)
+    ((num.round(2) / total) * 100).to_i
+  end
+
 end

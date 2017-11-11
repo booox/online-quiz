@@ -240,3 +240,17 @@ a:hover {
     width: 220px;
     height: 165px
 }
+
+
+.all-course .course-card-unlock .schedule-block .progress {
+    overflow: hidden;
+    background-color: #ccc;
+    height: 4px;
+    width: auto;
+    margin: 13px 0 5px;
+    border-radius: 4px
+}
+
+.all-course .course-card-unlock .schedule-block .progress-bar {
+    background-color: #1ECD97
+}

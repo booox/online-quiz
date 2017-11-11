@@ -21,12 +21,21 @@
                             预计学习时间：1 周
                         </p>
                         <div class="percent-bar">
+                          <% quiz_answered_questions_count = QuizDetail.where(quiz_id: quiz.id, user_id: current_user.id).size %>
+                          <% if quiz_answered_questions_count > 0 %>
+                            <div class="progress sh-progress-whole">
+                              <div class="progress-bar sh-progress-contents" style="width: <%= progressBar(quiz_answered_questions_count, quiz.questions.size) %>%"><%= progressBar(quiz_answered_questions_count, quiz.questions.size) %>%</div>
+                            </div>
+                          <% else %>
                             <div class="progress" id="hover-status"></div>
+                          <% end %>
                         </div>
                         <p class="task">
                             共 <%= quiz.questions.size %> 道题
                         </p>
                     </div>
+                    <%= quiz_answered_questions_count %>
+
                 </div>
               <% end %>
             <!-- </li> -->

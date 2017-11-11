@@ -24,7 +24,7 @@ class QuizQuestionsController < ApplicationController
 
     @quiz_correct_answers_count = QuizDetail.quiz_correct_answers(@quiz, current_user).size
     @quiz_wrong_answers_count = QuizDetail.quiz_wrong_answers(@quiz, current_user).size
-    @quiz_answered_question_count = QuizDetail.quiz_answered_question(@quiz, current_user).size
+    @quiz_answered_questions_count = QuizDetail.quiz_answered_questions(@quiz, current_user).size
 
     @right_answer = @question.answers.right_answer.first
     @right_answer_id = @right_answer.id
