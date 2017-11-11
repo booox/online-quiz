@@ -69,6 +69,10 @@ class User < ApplicationRecord
     end
   end
 
+  def display_name
+    self.profile.nickname.present? ? self.profile.nickname : self.email.split("@").first
+  end
+
 
   private
 
