@@ -14,7 +14,7 @@
                         <h2><%= quiz.title %></h2>
                     </div>
                     <div class="course-img">
-                        <%= image_tag 'computer-with-kids.png' %>
+                        <%= image_tag display_quiz_cover(quiz) %>
                     </div>
                     <div class="schedule-block">
                         <p class="time">
@@ -24,9 +24,7 @@
                             <div class="progress" id="hover-status"></div>
                         </div>
                         <p class="task">
-                            共
-                            <%= quiz.questions.size %>
-                            道题
+                            共 <%= quiz.questions.size %> 道题
                         </p>
                     </div>
                 </div>

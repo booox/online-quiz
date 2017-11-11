@@ -27,6 +27,8 @@ class Quiz < ApplicationRecord
 
   scope :no_quiz_type_quizzes, -> { where( quiz_type: "" ) }
 
+  mount_uploader :cover, CoverUploader
+
   def is_hidden?
     is_hidden
   end
