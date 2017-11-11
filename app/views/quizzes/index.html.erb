@@ -1,22 +1,39 @@
+<div class="course-block">
+    <div class="course-content">
+        <ul class="all-course">
+            <% @quizzes.each do |quiz| %>
+            <!-- <li class="quiz-item"> -->
+              <%= link_to quiz_question_path(quiz, quiz.questions.first) do %>
+                <div class="course-card-unlock">
 
-<div class="dashboard-content">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>试卷名称</td>
-      <th>类别</td>
-      <th>题数</td>
-    </tr>
-  </thead>
+                    <div class="title-cover"></div>
+                    <div class="start-btn">
+                        <span>开始答题</span>
+                    </div>
+                    <div class="title">
+                        <h2><%= quiz.title %></h2>
+                    </div>
+                    <div class="course-img">
+                        <%= image_tag 'computer-with-kids.png' %>
+                    </div>
+                    <div class="schedule-block">
+                        <p class="time">
+                            预计学习时间：1 周
+                        </p>
+                        <div class="percent-bar">
+                            <div class="progress" id="hover-status"></div>
+                        </div>
+                        <p class="task">
+                            共
+                            <%= quiz.questions.size %>
+                            道题
+                        </p>
+                    </div>
+                </div>
+              <% end %>
+            <!-- </li> -->
+            <% end %>
+        </ul>
 
-  <tbody>
-    <% @quizzes.each do |quiz| %>
-    <tr>
-      <td><%= link_to quiz.title, quiz_question_path(quiz, quiz.questions.first) %></td>
-      <td><%= quiz.category.title %></td>
-      <td><%= quiz.questions.size %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
 </div>

@@ -1,0 +1,242 @@
+
+.dashboard-content .course-content {
+    margin: 0 auto 40px;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 0 30px;
+    min-height: 970px;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.25);
+    display: table
+}
+
+a {
+    color: #03A9F4
+}
+
+a:hover {
+    color: #0288D1
+}
+
+.all-course {
+    margin: 0 auto;
+    text-align: center;
+    overflow: auto;
+    min-width: 200px;
+    max-width: 960px;
+    display: block;
+    list-style: none
+}
+
+.all-course a {
+    outline: none
+}
+
+// .all-course li {
+//     float: left;
+//     // margin-right: 40px;
+// }
+
+.all-course .course-card-unlock:hover .start-btn {
+    display: block
+}
+
+.all-course .course-card-unlock:hover .title-cover {
+    display: none
+}
+
+.all-course .course-card-unlock:hover .title h2 {
+    color: #000
+}
+
+.all-course .course-card-unlock {
+    height: 235px;
+    width: 220px;
+    float: left;
+    margin: 15px 37px 40px;
+    background: #F4F4F4;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.24);
+    position: relative
+}
+
+.all-course .course-card-unlock .course-img {
+    position: absolute;
+    z-index: 70
+}
+
+.all-course .course-card-unlock .course-img img {
+    width: 220px;
+    height: 165px
+}
+
+.all-course .course-card-unlock .title-cover {
+    position: absolute;
+    z-index: 80;
+    height: 40px;
+    width: 220px;
+    margin-top: 125px;
+    background: rgba(255,255,255,0.8)
+}
+
+.all-course .course-card-unlock .title {
+    position: absolute;
+    z-index: 81
+}
+
+.all-course .course-card-unlock .title h2 {
+    margin-top: 125px;
+    font-size: 15px;
+    color: #333;
+    line-height: 40px;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    text-align: left
+}
+
+.all-course .course-card-unlock .start-btn {
+    position: absolute;
+    z-index: 95;
+    color: #333;
+    width: 220px;
+    height: 235px;
+    display: none;
+    background: rgba(255,255,255,0.8)
+}
+
+.all-course .course-card-unlock .start-btn i {
+    padding-top: 75px;
+    font-size: 35px
+}
+
+.all-course .course-card-unlock .start-btn span {
+    display: block;
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    padding: 5px;
+    font-size: 14px;
+    color: #fff;
+    border: 1px solid rgba(74,73,74,0.19);
+    background: rgba(30,204,149,0.96);
+    border-radius: 4px
+}
+
+.all-course .course-card-unlock .schedule-block {
+    border-top: 1px solid #DEDEDE;
+    position: absolute;
+    z-index: 90;
+    margin-top: 165px;
+    height: 70px;
+    width: 220px;
+    padding: 6px 10px
+}
+
+.all-course .course-card-unlock .schedule-block p.time {
+    font-size: 13px;
+    text-align: left;
+    color: #333;
+    letter-spacing: 0.8px;
+    font-family: PingFangSC-light
+}
+
+.all-course .course-card-unlock .schedule-block p.task {
+    font-size: 13px;
+    text-align: right;
+    color: #333;
+    letter-spacing: 0.8px;
+    font-family: PingFangSC-light
+}
+
+.all-course .course-card-unlock .schedule-block .progress {
+    overflow: hidden;
+    background-color: #ccc;
+    height: 4px;
+    width: auto;
+    margin: 13px 0 5px;
+    border-radius: 4px
+}
+
+.all-course .course-card-unlock .schedule-block .progress-bar {
+    background-color: #1ECD97
+}
+
+.all-course .course-card-lock:hover .lock-cover {
+    transition: 0.1s;
+    background: rgba(74,73,74,0.3)
+}
+
+.all-course .course-card-lock {
+    height: 235px;
+    width: 220px;
+    float: left;
+    margin: 15px 30px 40px;
+    background: #F4F4F4;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.24);
+    position: relative
+}
+
+.all-course .course-card-lock .lock-info {
+    position: absolute;
+    z-index: 90
+}
+
+.all-course .course-card-lock .lock-info .lock-icon {
+    width: 220px;
+    height: 165px;
+    text-align: center;
+    padding-top: 70px
+}
+
+.all-course .course-card-lock .lock-info .lock-icon .icon-bg {
+    margin: 0 auto;
+    background: #4A4A4A;
+    border: 1px solid #979797;
+    background: rgba(74,73,74,0.7);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    display: inline-block
+}
+
+.all-course .course-card-lock .lock-info .lock-icon i {
+    color: #fff;
+    font-size: 22px;
+    line-height: 50px
+}
+
+.all-course .course-card-lock .lock-info .lock-text {
+    padding-top: 10px
+}
+
+.all-course .course-card-lock .lock-info .lock-text h2 {
+    font-size: 15px;
+    color: #666;
+    padding-bottom: 10px;
+    letter-spacing: 1px
+}
+
+.all-course .course-card-lock .lock-info .lock-text p {
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 2px;
+    font-family: PingFangSC-light
+}
+
+.all-course .course-card-lock .lock-cover {
+    position: absolute;
+    z-index: 80;
+    height: 235px;
+    width: 220px;
+    background: rgba(74,73,74,0.1)
+}
+
+.all-course .course-card-lock .course-img {
+    position: absolute;
+    z-index: 70
+}
+
+.all-course .course-card-lock .course-img img {
+    width: 220px;
+    height: 165px
+}
