@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create :create_user_quiz
+  after_create :create_user_profile
 
   has_many :favorites
   has_many :favorite_questions, :through => :favorites, :source => :question
@@ -82,6 +83,10 @@ class User < ApplicationRecord
                 quiz_type: name,
                 is_hidden: true )
     end
+  end
+
+  def create_user_profile
+    self.create_profile
   end
 
 end
