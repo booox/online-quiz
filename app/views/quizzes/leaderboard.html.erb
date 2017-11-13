@@ -1,0 +1,50 @@
+<div class="container course-block" id="leaderboard-content">
+    <div class="row">
+        <div class="content-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">我的积分</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        当前积分: <%= @current_user_score %>; 排位: <%= @current_user_rank %>
+                    </p>
+                </div>
+
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3 class="panel-title">本测试积分榜</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>积分</th>
+                            <th>排位</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% @leaders.each do |leader| %>
+                        <tr class="leaderboard-items">
+                            <td><a href="#"><%= leader[:display_name] %></a></td>
+                            <td><%= leader[:score] %></td>
+                            <td><%= leader[:rank] %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="text-center">
+                <%= will_paginate @leaders, class: "apple_pagination" %>
+            </div>
+        </div>
+
+    </div>
+</div>

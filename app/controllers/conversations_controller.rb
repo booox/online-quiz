@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = Conversation.joins(:messages).where("messages.recipient_id = ? OR messages.sender_id = ?", current_user.id, current_user.id).distinct.order(created_at: :desc)
+    @conversations = Conversation.joins(:messages).where("messages.recipient_id = ? OR messages.sender_id = ?", current_user.id, current_user.id).distinct.order(created_at: :desc).paginate( :page => params[:page], per_page: 10 )
   end
 
   def show

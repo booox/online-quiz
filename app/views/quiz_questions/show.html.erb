@@ -1,8 +1,11 @@
 <div class="dashboard-content">
 
 <div class="row">
-  <div class="col-xs-12 col-md-12 quiz-title">
+  <div class="col-xs-8 col-md-8 quiz-title">
     <%= display_quiz_title(@quiz, @quiz_type) %>
+  </div>
+  <div class="col-xs-4 col-md-4 leaderboard">
+    <%= link_to t("site.leaderboard"), leaderboard_quiz_path(@quiz), class: "btn btn-default btn-sm" %>
   </div>
 </div>
 

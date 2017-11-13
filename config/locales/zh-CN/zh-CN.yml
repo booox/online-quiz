@@ -23,6 +23,7 @@
   hello: "Hello world"
   site:
     site_name: "去答题"
+    leaderboard: "排行榜"
     my_favorite: "我的收藏"
     my_wrong: "我的错题"
     account:

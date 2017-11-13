@@ -10,6 +10,7 @@
 #  questions_count :integer          default(0)
 #  is_hidden       :boolean          default(TRUE)
 #  quiz_type       :string           default("")
+#  cover           :string
 #
 
 require 'test_helper'

@@ -1,9 +1,8 @@
 class QuizQuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_quiz
+  before_action :find_quiz, only: [:index, :show, :create_detail, :favorite, :feeling]
 
   def index
-    @quiz = Quiz.find(params[:quiz_id])
     @quiz_type = @quiz.quiz_type
     @questions = @quiz.questions
 
@@ -12,8 +11,6 @@ class QuizQuestionsController < ApplicationController
   end
 
   def show
-
-    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
     @quiz_type = @quiz.quiz_type
 
@@ -57,6 +54,10 @@ class QuizQuestionsController < ApplicationController
     @choice_id = params[:choice_id].to_i
     is_correct = (@right_answer_id == @choice_id) ? true : false
 
+    # leaderboard
+    points = is_correct ? 100 : 10
+    Leaderboard.award_points_to_user(@quiz.id, current_user, points)
+
     @quiz_detail = QuizDetail.where(quiz_id: params[:quiz_id],
                                     user_id: current_user.id,
                                     question_id: params[:id]).first
@@ -77,7 +78,6 @@ class QuizQuestionsController < ApplicationController
 
 
   def favorite
-    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
     @not_favorite = current_user && ! current_user.favorite_question?(@question)
     @is_favorite = current_user && current_user.favorite_question?(@question)
@@ -98,7 +98,6 @@ class QuizQuestionsController < ApplicationController
   end
 
   def feeling
-    @quiz = Quiz.find(params[:quiz_id])
     @question = @quiz.questions.find(params[:id])
     @feeling_value = params[:feeling_value]
 
@@ -127,6 +126,7 @@ class QuizQuestionsController < ApplicationController
       end
     end
   end
+
 
   private
 

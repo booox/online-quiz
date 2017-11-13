@@ -74,6 +74,10 @@ class User < ApplicationRecord
     self.profile.nickname.present? ? self.profile.nickname : self.email.split("@").first
   end
 
+  # def award_points(leaderboard, points)
+  #   Leaderboard.award_points_to_user(self.display_name, points)
+  # end
+
 
   private
 

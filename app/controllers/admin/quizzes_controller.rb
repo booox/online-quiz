@@ -40,7 +40,9 @@ class Admin::QuizzesController < ApplicationController
 
   def destroy
     @quiz.destroy
-    redirect_to admin_quizzes_path
+
+    Leaderboard.del_key(@quiz.id)   # remove leaderboard
+    redirect_to admin_quizzes_path, warning: "试卷已删除"
   end
 
   def hide_and_publish
