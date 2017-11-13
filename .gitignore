@@ -26,8 +26,8 @@
 Capfile
 config/database.yml
 config/secrets.yml
-config/initializers/redis.rb
-redis.rb
+#config/initializers/redis.rb
+#redis.rb
 
 public/uploads
 

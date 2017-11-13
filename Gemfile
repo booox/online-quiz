@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'font-awesome-rails'
@@ -50,7 +51,6 @@ gem 'active_link_to'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'redis-rails'
-gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 
 group :development, :test do
