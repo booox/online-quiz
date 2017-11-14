@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :destroy, :password, :password_update]
 
   def index
-    @users = User.where(is_admin: false).all
+    @users = User.where(is_admin: false).all.paginate( :page => params[:page], per_page: 10 )
   end
 
   def new

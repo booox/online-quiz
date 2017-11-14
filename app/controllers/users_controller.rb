@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to edit_user_path, notice: t("site.account.update_success")
+      redirect_to edit_user_path, notice: t("site.account.profile.update_success")
     else
       render :edit
     end
