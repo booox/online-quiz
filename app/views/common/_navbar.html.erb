@@ -41,12 +41,13 @@
                         <li><%= link_to( t("site.navbar.question"), admin_questions_path) %></li>
                         <li><%= link_to( t("site.navbar.category"), admin_categories_path) %></li>
                         <li><%= link_to( t("site.navbar.type"), admin_types_path) %></li>
+                        <li><%= link_to( t("site.navbar.users"), admin_users_path) %></li>
                         <li class="divider"></li>
                       <% end %>
                       <li> <%= display_favorite_link %> </li>
                       <li> <%= display_wrong_link %> </li>
                       <li class="divider"></li>
-                      <li> <%= link_to( t("site.navbar.user"), edit_user_path) %> </li>
+                      <li> <%= link_to( t("site.navbar.account"), edit_user_path) %> </li>
                       <li> <%= link_to( t("site.navbar.logout"), destroy_user_session_path, method: :delete) %> </li>
                   </ul>
                 </li>

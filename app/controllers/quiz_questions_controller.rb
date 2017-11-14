@@ -56,7 +56,7 @@ class QuizQuestionsController < ApplicationController
 
     # leaderboard
     points = is_correct ? 100 : 10
-    Leaderboard.award_points_to_user(@quiz.id, current_user, points)
+    Leaderboard.award_points_to_user("quiz:#{@quiz.id}", current_user, points)
 
     @quiz_detail = QuizDetail.where(quiz_id: params[:quiz_id],
                                     user_id: current_user.id,

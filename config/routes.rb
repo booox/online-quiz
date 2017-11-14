@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     resources :conversations do
       resources :messages
     end
+    resources :users do
+      member do
+        get :password
+        put :password_update
+      end
+    end
   end
 
   resources :quizzes do

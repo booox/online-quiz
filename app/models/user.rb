@@ -27,7 +27,7 @@ class User < ApplicationRecord
   after_create :create_user_quiz
   after_create :create_user_profile
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_questions, :through => :favorites, :source => :question
 
   has_many :feelings, dependent: :destroy

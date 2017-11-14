@@ -5,11 +5,11 @@ class Leaderboard
   # end
 
   def self.get_user_score(key, user)
-    Redis.current.zscore(key, user.display_name)
+    Redis.current.ZSCORE(key, user.display_name)
   end
 
   def self.get_user_rank(key, user)
-    rank = Redis.current.zrevrank(key, user.display_name)
+    rank = Redis.current.ZREVRANK(key, user.display_name)
     return unless rank
     rank + 1
   end
@@ -18,8 +18,16 @@ class Leaderboard
     Redis.current.DEL(key)
   end
 
+  def self.remove_user(key, user)
+    Redis.current.ZREM(key, user.display_name)
+  end
+
   def self.award_points_to_user(key, user, points)
-    Redis.current.zincrby(key, points, user.display_name)
+    Redis.current.ZINCRBY(key, points, user.display_name)
+  end
+
+  def self.get_keys_begin_with(text)
+    Redis.current.keys("#{text}*")
   end
 
   def self.top(key, limit = -1)

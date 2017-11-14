@@ -15,6 +15,10 @@
 #
 
 class Profile < ApplicationRecord
-  validates :nickname, uniqueness: true
+  validates :nickname, uniqueness: true, unless: :nickname_is_null?
   belongs_to :user
+
+  def nickname_is_null?
+    !self.nickname.present?
+  end
 end
