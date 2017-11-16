@@ -75,7 +75,14 @@
   quiz:
     reset_quiz: "清空重做"
     reset_quiz_confirm: "如果清空重做，所有记录都会被删除\n确定要清空重做吗？"
-
+    leaderboard:
+      title: "我的积分"
+      current_score_text: "当前积分: "
+      current_ranke_text: "; 排位:"
+      leaderboard_text: "本测试积分榜"
+      user_name: "用户名"
+      score: "积分"
+      rank: "排位"
   question:
     answer:
       "false": "否"

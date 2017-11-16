@@ -54,9 +54,9 @@ class QuizQuestionsController < ApplicationController
     @choice_id = params[:choice_id].to_i
     is_correct = (@right_answer_id == @choice_id) ? true : false
 
-    # leaderboard
+    # leaderboard for score
     points = is_correct ? 100 : 10
-    Leaderboard.award_points_to_user("quiz:#{@quiz.id}", current_user, points)
+    Leaderboard.award_points_to_user("score:quiz:#{@quiz.id}", "user:#{current_user.id}", points)
 
     @quiz_detail = QuizDetail.where(quiz_id: params[:quiz_id],
                                     user_id: current_user.id,
@@ -68,6 +68,16 @@ class QuizQuestionsController < ApplicationController
                         question_id: params[:id],
                         choice_id: @choice_id,
                         is_correct: is_correct)
+
+      # leaderboard for statistics
+      Leaderboard.award_points_to_user("statistics:quiz:#{@quiz.id}", "user:#{current_user.id}", 1)
+      if is_correct
+        # leaderboard for statistics
+        Leaderboard.award_points_to_user("right:quiz:#{@quiz.id}", "user:#{current_user.id}", 1)
+      else
+        # leaderboard for statistics
+        Leaderboard.award_points_to_user("wrong:quiz:#{@quiz.id}", "user:#{current_user.id}", 1)
+      end
 
       user_quiz = current_user.get_user_quiz("wrong")  # for wrongs
       if ! user_quiz.questions.include?(@question)

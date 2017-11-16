@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     member do
       delete :reset
       get :leaderboard
+      get :statistics
     end
   end
 

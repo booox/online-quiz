@@ -35,9 +35,11 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    keys = Leaderboard.get_keys_begin_with("quiz:")
-    keys.each do |key|
-      Leaderboard.remove_user(key, @user)
+    Leaderboard.prefixs.each do |prefix|
+      keys = Leaderboard.get_keys_begin_with("#{prefix}:quiz:")
+      keys.each do |key|
+        Leaderboard.remove_element(key, "user:#{@user.id}")
+      end
     end
 
     flash[:warning] = t("site.admin.users.delete_success")

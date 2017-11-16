@@ -41,7 +41,10 @@ class Admin::QuizzesController < ApplicationController
   def destroy
     @quiz.destroy
 
-    Leaderboard.del_key("quiz:#{@quiz.id}")   # remove leaderboard
+    Leaderboard.prefixs.each do |prefix|
+      Leaderboard.del_key("#{prefix}:quiz:#{@quiz.id}")   # remove leaderboard
+    end
+
     redirect_to admin_quizzes_path, warning: "试卷已删除"
   end
 
