@@ -3,11 +3,20 @@
         <div class="content-block">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><%= t("quiz.leaderboard.title") %></h3>
+                    <h3 class="panel-title">
+                      <%= link_to url_for(request.env["HTTP_REFERER"] || root_path) do %>
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                      <% end %>
+                      <%= t("quiz.leaderboard.title1") %>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <p>
-                      <%= t("quiz.leaderboard.current_score_text") %><%= @current_user_score %><%= t("quiz.leaderboard.current_ranke_text") %><%= @current_user_rank %>
+                      <% if @current_user_score > 0 %>
+                        <%= t("quiz.leaderboard.current_score_text") %><%= @current_user_score %><%= t("quiz.leaderboard.current_ranke_text") %><%= @current_user_rank %>
+                      <% else %>
+                        <span class="not-start"><%= t("quiz.leaderboard.not_start") %></span>
+                      <% end %>
                     </p>
                 </div>
 
@@ -16,7 +25,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-8">
-                            <h3 class="panel-title"><%= t("quiz.leaderboard.leaderboard_text") %></h3>
+                            <h3 class="panel-title"><%= t("quiz.leaderboard.title2") %></h3>
                         </div>
                     </div>
                 </div>
@@ -24,17 +33,17 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th><%= t("quiz.leaderboard.user_name") %></th>
-                            <th><%= t("quiz.leaderboard.score") %></th>
-                            <th><%= t("quiz.leaderboard.rank") %></th>
+                          <th class="leader-user-name"><%= t("quiz.leaderboard.user_name") %></th>
+                          <th class="leader-score"><%= t("quiz.leaderboard.score") %></th>
+                          <th class="leader-rank"><%= t("quiz.leaderboard.rank") %></th>
                         </tr>
                     </thead>
                     <tbody>
                       <% @leaders.each do |leader| %>
                         <tr class="leaderboard-items">
-                            <td><a href="#"><%= leader[:display_name] %></a></td>
-                            <td><%= leader[:score] %></td>
-                            <td><%= leader[:rank] %></td>
+                          <td class="leader-user-name"><%= leader[:display_name] %></td>
+                          <td class="leader-score"><%= leader[:score] %></td>
+                          <td class="leader-rank"><%= leader[:rank] %></td>
                         </tr>
                       <% end %>
                     </tbody>

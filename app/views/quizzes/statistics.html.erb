@@ -1,22 +1,32 @@
 <div class="container course-block" id="leaderboard-content">
     <div class="row">
         <div class="content-block">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><%= t("quiz.leaderboard.title") %></h3>
-                </div>
-                <div class="panel-body">
-                    <p>
-                      <%= t("quiz.leaderboard.current_score_text") %><%= @current_user_score %><%= t("quiz.leaderboard.current_ranke_text") %><%= @current_user_rank %>
-                    </p>
-                </div>
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <%= link_to url_for(request.env["HTTP_REFERER"] || root_path) do %>
+                      <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                    <% end %>
+                    <%= t("quiz.statistics.title1") %>
+                  </h3>
+              </div>
+              <div class="panel-body">
+                  <p>
+                    <% if @current_user_statistics > 0 %>
+                      <%= t("quiz.statistics.current_user_statistics") %><%= @current_user_statistics %> / <%= @quiz_questions_size %>
+                    <% else %>
+                      <span class="not-start"><%= t("quiz.statistics.not_start") %></span>
+                    <% end %>
+                  </p>
+              </div>
 
-            </div>
+          </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-md-8">
-                            <h3 class="panel-title"><%= t("quiz.leaderboard.leaderboard_text") %></h3>
+                          <h3 class="panel-title"><%= t("quiz.statistics.title2") %></h3>
                         </div>
                     </div>
                 </div>
@@ -24,17 +34,26 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th><%= t("quiz.leaderboard.user_name") %></th>
-                            <th><%= t("quiz.leaderboard.score") %></th>
-                            <th><%= t("quiz.leaderboard.rank") %></th>
+                          <th class="stat-user-name"><%= t("quiz.statistics.user_name") %></th>
+                          <th class="stat-count"><%= t("quiz.statistics.count") %> / <%= @quiz_questions_size %> </th>
+                          <th class="stat-graph"><%= t("quiz.statistics.graph") %></th>
                         </tr>
                     </thead>
                     <tbody>
-                      <% @leaders.each do |leader| %>
-                        <tr class="leaderboard-items">
-                            <td><a href="#"><%= leader[:display_name] %></a></td>
-                            <td><%= leader[:score] %></td>
-                            <td><%= leader[:rank] %></td>
+                      <% @statistics.each do |statistic| %>
+                        <tr>
+                          <td class="stat-user-name"><%= statistic[:display_name] %></td>
+                          <td class="stat-count"><%= statistic[:score] %></td>
+                          <td class="stat-graph">
+                            <% if statistic[:score] > 0 %>
+                              <div class="progress sh-progress-whole">
+                                <div class="progress-bar sh-progress-contents" style="width: <%= progressBar(statistic[:score], @quiz_questions_size) %>%"><%= progressBar(statistic[:score], @quiz_questions_size) %>%</div>
+                              </div>
+                            <% else %>
+                              <div class="progress" id="hover-status"></div>
+                            <% end %>
+                          </td>
+
                         </tr>
                       <% end %>
                     </tbody>
@@ -42,7 +61,7 @@
 
             </div>
             <div class="text-center">
-                <%= will_paginate @leaders, class: "apple_pagination" %>
+                <%= will_paginate @statistics, class: "apple_pagination" %>
             </div>
         </div>
 

@@ -1,0 +1,52 @@
+// for leaderboard
+
+.not-start {
+  color: red;
+}
+
+.leader-rank{
+  width: 25%;
+  text-align: center;
+}
+
+.leader-user-name{
+  width: 50%;
+  text-align: center;
+}
+
+.leader-score{
+  width: 25%;
+  text-align: center;
+}
+
+
+// for statistics
+
+.stat-user-name, .stat-count {
+  width: 15%;
+  text-align: center;
+}
+
+.stat-graph{
+  width: 70%;
+}
+
+.stat-graph .progress {
+    overflow: hidden;
+    height: 20px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1)
+}
+
+.stat-graph .sh-progress-whole {
+    width: 100%;
+    height: 20px;
+}
+
+.stat-graph .sh-progress-contents {
+    background-color: #1ecd97;
+    max-width: 100%
+}

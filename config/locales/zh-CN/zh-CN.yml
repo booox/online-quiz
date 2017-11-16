@@ -23,7 +23,6 @@
   hello: "Hello world"
   site:
     site_name: "答题宝典"
-    leaderboard: "排行榜"
     my_favorite: "我的收藏"
     my_wrong: "我的错题"
     delete_confirm: "确定要删除吗？"
@@ -76,13 +75,24 @@
     reset_quiz: "清空重做"
     reset_quiz_confirm: "如果清空重做，所有记录都会被删除\n确定要清空重做吗？"
     leaderboard:
-      title: "我的积分"
+      button: "排行榜"
+      title1: "我的积分"
+      title2: "本测试积分榜"
       current_score_text: "当前积分: "
       current_ranke_text: "; 排位:"
-      leaderboard_text: "本测试积分榜"
       user_name: "用户名"
       score: "积分"
       rank: "排位"
+      not_start: "还没有开始做，要抓紧喽！"
+    statistics:
+      button: "进度条"
+      title1: "我的进度"
+      title2: "本测试完成进度"
+      user_name: "用户名"
+      count: "已完成"
+      graph: "图示"
+      current_user_statistics: "当前进度: "
+      not_start: "还没有开始做，要抓紧喽！"
   question:
     answer:
       "false": "否"
