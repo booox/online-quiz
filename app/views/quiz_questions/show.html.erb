@@ -5,8 +5,14 @@
     <%= display_quiz_title(@quiz, @quiz_type) %>
   </div>
   <div class="col-xs-4 col-md-4 leaderboard">
-    <%= link_to t("quiz.leaderboard.button"), leaderboard_quiz_path(@quiz), class: "btn btn-default btn-sm" %>
-    <%= link_to t("quiz.statistics.button"), statistics_quiz_path(@quiz), class: "btn btn-default btn-sm" %>
+    <%= link_to leaderboard_quiz_path(@quiz), class: "btn btn-default btn-sm" do %>
+      <i class="fa fa-list-ol" aria-hidden="true"></i>
+    <% end %>
+    <%#= link_to t("quiz.leaderboard.button"), leaderboard_quiz_path(@quiz), class: "btn btn-default btn-sm" %>
+    <%= link_to statistics_quiz_path(@quiz), class: "btn btn-default btn-sm" do %>
+      <i class="fa fa-battery-three-quarters" aria-hidden="true"></i>
+    <% end %>
+    <%#= link_to t("quiz.statistics.button"), statistics_quiz_path(@quiz), class: "btn btn-default btn-sm" %>
   </div>
 </div>
 
