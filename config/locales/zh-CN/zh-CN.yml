@@ -100,7 +100,7 @@
       rank: "排位"
       not_start: "还没有开始做，要抓紧喽！"
     statistics:
-      button: "进度条"
+      button: "进度表"
       title1: "我的进度"
       title2: "本测试完成进度"
       user_name: "用户名"

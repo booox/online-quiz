@@ -66,9 +66,12 @@ body{
 }
 
 .quiz-title{
-  padding-left: 55px;
+  padding-left: 20px;
   font-size: 1.2em;
   font-weight: bold;
+  overflow: hidden;
+  height: 24px;
+  // display: block;
 }
 
 
