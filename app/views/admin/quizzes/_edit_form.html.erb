@@ -1,0 +1,32 @@
+<%= form_for [:admin, @quiz], class: "quiz-form" do |f| %>
+
+  <% if @quiz.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+    <ul>
+    <% @quiz.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, t("site.admin.quiz.quiz_title") %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+
+  <div id="quiz-cover">
+    <%= f.label :cover, t("site.admin.quiz.cover") %>
+    <% if @quiz.cover.present? %>
+      <%= image_tag(@quiz.cover.thumb.url) %>
+    <% end %>
+    <%= f.file_field :cover %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_quizzes_path %>
+  </div>
+<% end %>

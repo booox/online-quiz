@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111060155) do
+ActiveRecord::Schema.define(version: 20171118032528) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -136,12 +136,18 @@ ActiveRecord::Schema.define(version: 20171111060155) do
   create_table "quizzes", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "questions_count", default: 0
     t.boolean  "is_hidden",       default: true
     t.string   "quiz_type",       default: ""
     t.string   "cover"
+    t.integer  "start_number"
+    t.integer  "end_number"
+    t.integer  "given_number"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean  "is_random",       default: false
   end
 
   create_table "types", force: :cascade do |t|

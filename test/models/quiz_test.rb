@@ -11,6 +11,12 @@
 #  is_hidden       :boolean          default(TRUE)
 #  quiz_type       :string           default("")
 #  cover           :string
+#  start_number    :integer
+#  end_number      :integer
+#  given_number    :integer
+#  start_time      :datetime
+#  end_time        :datetime
+#  is_random       :boolean          default(FALSE)
 #
 
 require 'test_helper'

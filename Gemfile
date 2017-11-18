@@ -51,6 +51,7 @@ gem 'active_link_to'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'redis-rails'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

@@ -20,6 +20,8 @@
 //= require nested_form_fields
 //= require select2
 //= require jquery-ui/widgets/draggable
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN
 
 
 
@@ -60,6 +62,8 @@ function enable_submit_on_complain_input_validation() {
 })(jQuery);
 
 
+
+
 $(document).on("turbolinks:load", function() {
     $("#complainModal").find(".modal-dialog").draggable({
         handle: ".modal-header"
@@ -86,4 +90,21 @@ $(document).on("turbolinks:load", function() {
     // });
     $("#complain_content").on("input propertychange", enable_submit_on_complain_input_validation);
     // $("#complain_image").on("change", enable_submit_on_complain_input_validation);
-})
+
+    // set questions size in quiz new & edit page
+    $("[id^=quiz_category_id_]").on("change", function(t) {
+      t.preventDefault();
+      var category_id = $(this).val();
+
+      $.ajax ({
+        method: 'GET',
+        url: "/admin/categories/" + category_id + "/get_questions_size",
+        dataType: 'json',
+        success: function(data){
+          console.log(data);
+          $("#quiz_start_number").val(1);
+          $("#quiz_end_number").val(data);
+        }
+      });
+    });
+});

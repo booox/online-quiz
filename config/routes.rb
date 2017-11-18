@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   # get '/favorites', to: 'quiz_questions#show', as: 'favorites'
 
   namespace :admin do
-    resources :categories
+    resources :categories do
+      member do
+        get :get_questions_size
+      end
+    end
     resources :types
     resources :questions do
       collection do

@@ -1,4 +1,4 @@
-<%= form_for [:admin, @quiz] do |f| %>
+<%= form_for [:admin, @quiz], class: "quiz-form" do |f| %>
 
   <% if @quiz.errors.any? %>
   <div id="error_explanation">
@@ -13,12 +13,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, "试卷题目(*)" %>
+    <%= f.label :title, t("site.admin.quiz.quiz_title") %>
     <%= f.text_field :title, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :category_id, "抽题类别(*)" %>
+    <%= f.label :category_id, t("site.admin.quiz.category") %>
     <div class="btn-group" data-toggle="buttons">
       <% Category.all.each do |category| %>
         <label class="btn btn-default <%= (category.id == f.object.category_id)? 'active' : '' %>">
@@ -29,16 +29,45 @@
     </div>
   </div>
 
-  <% if @quiz.cover.present? %>
-    <%= image_tag(@quiz.cover.thumb.url) %>
-  <% else %>
-    <%= f.label :cover, "封面图片(*)" %>
-    <%= f.file_field :cover %>
-  <% end %>
+  <div class="form-group">
+    <%= f.label t("site.admin.quiz.range") %>
+    从 : <%= f.number_field :start_number, class: "form-control start-number" %>
+    到 : <%= f.number_field :end_number, class: "form-control" %>
+  </div>
 
+  <div class="form-group">
+    <%= f.label t("site.admin.quiz.count") %>
+    <%= f.number_field :given_number, class: "form-control" %>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :is_random, t("site.admin.quiz.is_random.title") %>
+    <div class="btn-group" data-toggle="buttons">
+      <% [true, false].each do |flag| %>
+        <label class="btn btn-default <%= (flag == f.object.is_random)? 'active' : '' %>">
+          <%= f.radio_button :is_random, flag %>
+          <%= t(flag, :scope => "site.admin.quiz.is_random") %>
+        </label>
+      <% end %>
+    </div>
+  </div>
 
-  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
-  <%= link_to "Cancel", admin_quizzes_path %>
+  <div class="form-group">
+    <%#= f.label "限时完成：" %>
+    <%#=  :count, class: "form-control" %>
+  </div>
 
+  <div id="quiz-cover">
+    <% if @quiz.cover.present? %>
+      <%= image_tag(@quiz.cover.thumb.url) %>
+    <% else %>
+      <%= f.label :cover, t("site.admin.quiz.cover") %>
+      <%= f.file_field :cover %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_quizzes_path %>
+  </div>
 <% end %>

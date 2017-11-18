@@ -20,6 +20,7 @@
 @import "font-awesome";
 @import "select2";
 @import "select2-bootstrap";
+@import "bootstrap-datepicker3";
 
 
 // .answer_count{
@@ -610,4 +611,23 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 .orange{
   color: #f86335;
+}
+
+
+
+// for form style
+
+form.new_quiz, form.edit_quiz {
+  input#quiz_title {
+    width: 440px;
+  }
+  input#quiz_start_number,
+  input#quiz_end_number,
+  input#quiz_given_number {
+    width: 100px;
+    display: inline;
+  }
+  div#quiz-cover{
+    margin: 15px 0 25px;
+  }
 }

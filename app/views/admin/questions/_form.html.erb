@@ -40,13 +40,10 @@
 
       <div class="form-group">
         <%= ff.label :is_right, "正确答案?" %>
-        <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s]}, {}, class: "form-control" %> -->
-        <!-- <%#= f.select :status, Event::STATUS.map{ |s| [t(s, :scope => "event.status"), s] }, {}, :class => "form-control" %> -->
         <div class="btn-group" data-toggle="buttons">
           <% [true, false].each do |k| %>
             <label class="btn btn-default <%= (k == ff.object.is_right)? 'active' : '' %>">
               <%= ff.radio_button :is_right, k %>
-              <%#= k %>
               <%= t(k, :scope => "question.answer") %>
             </label>
           <% end %>

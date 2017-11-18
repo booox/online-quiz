@@ -54,6 +54,21 @@
         delete_success: "用户已删除"
       exams:
         title: "试卷完成统计"
+      quiz:
+        create_success: "试卷添加成功"
+        update_success: "试卷更新成功"
+        delete_success: "试卷更新成功"
+        quiz_title: "试卷题目(*)"
+        category: "抽题类别(*)"
+        range: "范围"
+        from: "从 : "
+        to: "指定数量："
+        count: "到 : "
+        cover: "封面图片(*)"
+        is_random:
+          title: "抽题方式："
+          "false": "顺序"
+          "true": "随机"
     account:
       profile:
         title: "我的资料"
