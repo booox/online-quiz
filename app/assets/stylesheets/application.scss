@@ -23,8 +23,6 @@
 @import "bootstrap-datepicker3";
 
 
-// .answer_count{
-// }
 
 body{
   background-color: #f9f9fa;
@@ -633,4 +631,9 @@ form.new_quiz, form.edit_quiz {
   div#quiz-cover{
     margin: 15px 0 25px;
   }
+}
+
+// for countdown
+#countdown {
+  font-size: 12px;
 }

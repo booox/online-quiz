@@ -1,46 +1,63 @@
 zh-CN:
   devise:
+    authentications:
+      user:
+        signed_in: 登录成功
+        failure: 链接失败
+        add_provider_success: 链接成功,您以后可以使用关联的第三方帐号登录
+        fill_your_email: 绑定成功，请填写注册信息以完成绑定
     confirmations:
-      confirmed: 您的帐号已经确认，您现在已登录.
-      send_instructions: 几分钟后，您将收到确认帐号的电子邮件.
-      send_paranoid_instructions: 如果您的邮箱存在于我们的数据库中，您将收到一封确认账号的邮件.
+      confirmed: "您的帐号已经确认，您现在已登录."
+      send_instructions: "几分钟后，您将收到确认帐号的电子邮件."
+      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将收到一封确认账号的邮件."
     failure:
-      already_authenticated: 您已经登录.
-      inactive: 您还没有激活帐户.
-      invalid: 邮箱或密码错误
-      invalid_token: 认证码无效.
-      locked: 您的帐号已被锁定.
-      not_found_in_database: 邮箱或密码错误
-      timeout: 您已登录超时，请重新登录.
-      unauthenticated: 继续操作前请注册或者登录.
-      unconfirmed: 继续操作前请先确认您的帐号.
+      already_authenticated: '您已经登录.'
+      unauthenticated: '继续操作前请注册或者登录.'
+      unconfirmed: '继续操作前请先确认您的帐号.'
+      locked: '您的帐号已被锁定.'
+      invalid: '账号或密码错误'
+      invalid_token: '认证码无效.'
+      timeout: '您已登录超时，请重新登录.'
+      inactive: '您还没有激活帐户.'
     mailer:
       confirmation_instructions:
-        subject: 确认信息
+        subject: "确认信息"
       reset_password_instructions:
-        subject: 重置密码信息
+        subject: "重置密码信息"
       unlock_instructions:
-        subject: 解锁信息
+        subject: "解锁信息"
     omniauth_callbacks:
-      failure: 因为%{reason}，所以您无法从%{kind}获得授权.
-      success: 成功地从%{kind}获得授权.
+      success: '成功地从%{kind}获得授权.'
+      failure: '因为%{reason}，所以您无法从%{kind}获得授权.'
     passwords:
-      no_token: 您暂时不能访问此页面。您需要通过密码重置邮件中的重置链接来访问此页面，如果您正是通过重置链接访问，请确定链接的正确性。
-      send_instructions: 几分钟后，您将收到重置密码的电子邮件.
-      send_paranoid_instructions: 如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件.
-      updated: 您的密码已修改成功，您现在已登录.
-      updated_not_active: 您的密码已修改成功.
+      send_instructions: '几分钟后，您将收到重置密码的电子邮件.'
+      updated: '您的密码已修改成功，您现在已登录.'
+      updated_not_active: '您的密码已修改成功.'
+      send_paranoid_instructions: '如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件.'
+      user:
+        no_token: 若需访问本页面，请使用重置密码邮件中网址链接，并确保该网址完整。
     registrations:
-      destroyed: 再见！您的帐户已成功注销。我们希望很快可以再见到您.
-      signed_up: 欢迎您！您已注册成功.
-      signed_up_but_inactive: 谢谢您！然而您的账号还未被激活，在这之前无法登陆。
-      signed_up_but_locked: 谢谢您！然而您的账号已被锁定，无法登陆。
-      signed_up_but_unconfirmed: 谢谢您！一封确认邮件已经发至您的邮箱，请点击其中的链接激活您的账号。
-      update_needs_confirmation: 新的账号信息已成功提交，一封确认邮件已经发至您的邮箱，请点击其中的链接以使您的新E-mail地址生效。
-      updated: 帐号资料更新成功.
+      current_password: '原密码'
+      password: '新密码'
+      password_confirmation: '确认新密码'
+      signed_up: '欢迎您！您已注册成功.'
+      updated: '帐号资料更新成功.'
+      destroyed: '再见！您的帐户已成功注销。我们希望很快可以再见到您.'
+      signed_up_but_unconfirmed: '带有确认链接的信息已经发送到你的邮箱。请打开此链接来激活你的帐号'
+      signed_up_but_inactive: '虽然您已经注册成功，但因为你的帐号还未激活，所以你暂时无法登录'
+      signed_up_but_locked: '虽然您已经注册成功，但因为你的帐号已被锁定，所以你暂时无法登录'
+      update_needs_confirmation: 带有确认链接的信息已经发送到你的邮箱。请打开此链接来确认你更新的资料
     sessions:
-      signed_in: 登录成功.
-      signed_out: 退出成功.
+      log_in: '登录'
+      sign_up: '注册'
+      remember_me: '记住我'
+      email: '邮箱'
+      password: '密码'
+      password_confirmation: '确认密码'
+      characters_minimum: '个最少字符'
+      forgot_password: '忘记密码?'
+      signed_out: '退出成功.'
+      signed_in: 登录成功
     unlocks:
       send_instructions: 几分钟后，您将收到一封解锁帐号的邮件.
       send_paranoid_instructions: 如果您的邮箱存在于我们的数据库中，您将收到一封解锁账号的邮件.
