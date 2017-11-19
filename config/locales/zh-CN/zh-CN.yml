@@ -69,6 +69,9 @@
           title: "抽题方式："
           "false": "顺序"
           "true": "随机"
+        statistics:
+          title: "测试统计："
+
     account:
       profile:
         title: "我的资料"

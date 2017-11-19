@@ -19,10 +19,11 @@
       <td><%= quiz.questions.size %></td>
       <td>
         <%= link_to "Edit", edit_admin_quiz_path(quiz), class: "btn btn-primary btn-xs" %>
-        <%= link_to "Delete", admin_quiz_path(quiz), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "确定要删除吗？"} %>
         <%= link_to hide_and_publish_admin_quiz_path(quiz), method: :post, remote: true do %>
           <%= display_quiz_hide_icon(quiz) %>
         <% end %>
+        <%= link_to "Statistics", statistics_admin_quiz_path(quiz), class: "btn btn-success btn-xs" %>
+        <%= link_to "Delete", admin_quiz_path(quiz), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: "确定要删除吗？"} %>
       </td>
     </tr>
     <% end %>

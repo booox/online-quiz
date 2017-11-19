@@ -1,7 +1,7 @@
 class Admin::QuizzesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-  before_action :find_quiz, only: [:show, :edit, :update, :destroy, :hide_and_publish]
+  before_action :find_quiz, only: [:show, :edit, :update, :destroy, :hide_and_publish, :statistics]
 
   def index
     @quizzes = Quiz.includes(:quiz_questions).no_quiz_type_quizzes
@@ -91,6 +91,11 @@ class Admin::QuizzesController < ApplicationController
       @quiz.is_hidden = true
     end
     @quiz.save
+  end
+
+  def statistics
+    @quiz_questions_size = @quiz.questions.size
+    @statistics = Leaderboard.admin_statistics(@quiz.id).paginate( :page => params[:page], per_page: 35 )
   end
 
   private

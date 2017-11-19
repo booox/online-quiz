@@ -70,4 +70,27 @@ class Leaderboard
     leaders
   end
 
+  def self.admin_statistics(quiz_id, limit = -1)
+    top = Redis.current.zrevrange("statistics:quiz:#{quiz_id}", 0, limit, :withscores => true)
+    statistics = []
+    top.each_with_index do |e, i|
+      user_id = e[0].sub("user:", "").to_i
+      user = User.find(user_id)
+      display_name = user.display_name
+      real_name = user.profile.real_name
+      department = user.profile.department
+
+      score = Redis.current.ZSCORE("score:quiz:#{quiz_id}", "user:#{user_id}")
+      right = Redis.current.ZSCORE("right:quiz:#{quiz_id}", "user:#{user_id}")
+      wrong = Redis.current.ZSCORE("wrong:quiz:#{quiz_id}", "user:#{user_id}")
+
+      statistics << {display_name: display_name, answered: e[1].to_i, rank: i + 1, user_id: user_id,
+                  real_name: real_name, department: department, score: score,
+                  right: right, wrong: wrong }
+    end
+
+    statistics
+  end
+
+
 end

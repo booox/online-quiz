@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :quizzes do
       member do
         post :hide_and_publish
+        get :statistics
       end
     end
     resources :complains

@@ -1,0 +1,60 @@
+<div class="container course-block" id="leaderboard-content">
+    <div class="row">
+        <div class="content-block">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-8">
+                          <h3 class="panel-title">
+                            <%= link_to url_for(request.env["HTTP_REFERER"] || root_path) do %>
+                            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                            <% end %>
+                            <%= t("quiz.statistics.title2") %>
+                            <span id="quiz-statistics-title"><%= @quiz.title %></span>
+                          </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                          <th class="stat-user-name"><%= "班级" %></th>
+                          <th class="stat-user-name"><%= "姓名" %></th>
+                          <th class="stat-count"><%= t("quiz.statistics.count") %> / <%= @quiz_questions_size %> </th>
+                          <th class="stat-count"><%= "对错" %> </th>
+                          <th class="stat-count"><%= "积分" %> </th>
+                          <th class="stat-graph"><%= t("quiz.statistics.graph") %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% @statistics.each do |statistic| %>
+                        <tr>
+                          <td class="stat-user-name"><%= statistic[:department] %></td>
+                          <td class="stat-user-name"><%= statistic[:real_name] %></td>
+                          <td class="stat-count"><%= statistic[:answered] %></td>
+                          <td class="stat-count"><%= "#{statistic[:right]} : #{statistic[:wrong]}" %></td>
+                          <td class="stat-count"><%= statistic[:score] %></td>
+                          <td class="stat-graph">
+                            <% if statistic[:answered] > 0 %>
+                              <div class="progress sh-progress-whole">
+                                <div class="progress-bar sh-progress-contents" style="width: <%= progressBar(statistic[:answered], @quiz_questions_size) %>%"><%= progressBar(statistic[:answered], @quiz_questions_size) %>%</div>
+                              </div>
+                            <% else %>
+                              <div class="progress" id="hover-status"></div>
+                            <% end %>
+                          </td>
+
+                        </tr>
+                      <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="text-center">
+                <%= will_paginate @statistics, class: "apple_pagination" %>
+            </div>
+        </div>
+
+    </div>
+</div>
