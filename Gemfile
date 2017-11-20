@@ -52,6 +52,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'redis-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'rubyzip'
+gem 'axlsx'
+gem 'axlsx_rails'
 
 
 group :development, :test do

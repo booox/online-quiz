@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Buttons") do |sheet|
+  sheet.add_row ["班级", "姓名", "已完成 / #{@quiz_questions_size}", "对 ：错", "积分"]
+  @statistics.each do |r|
+    sheet.add_row [r[:department], r[:real_name], r[:answered], "#{r[:right]} : #{r[:wrong]}", r[:score]]
+  end
+end

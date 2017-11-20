@@ -26,6 +26,7 @@
                                       <li class="divider" role="separator"></li>
                                       <li><%= link_to "全部", statistics_admin_quiz_path(@quiz) %></li>
                                     </ul>
+                                    <%= link_to "导出为 Excel", statistics_admin_quiz_path(@quiz, format: :xlsx), class: "btn btn-default", id: "export-stat" %>
                                 </div>
                             </h3>
                         </div>
