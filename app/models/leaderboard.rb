@@ -58,6 +58,10 @@ class Leaderboard
     Redis.current.keys("#{text}*")
   end
 
+  def self.get_departments
+    Redis.current.SMEMBERS(:departments)
+  end
+
   def self.top(key, limit = -1)
     top = Redis.current.zrevrange(key, 0, limit, :withscores => true)
     leaders = []
@@ -79,6 +83,8 @@ class Leaderboard
       display_name = user.display_name
       real_name = user.profile.real_name
       department = user.profile.department
+
+      Redis.current.SADD(:departments, department) if department != ""
 
       score = Redis.current.ZSCORE("score:quiz:#{quiz_id}", "user:#{user_id}")
       right = Redis.current.ZSCORE("right:quiz:#{quiz_id}", "user:#{user_id}")

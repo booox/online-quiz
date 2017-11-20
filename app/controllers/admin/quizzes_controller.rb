@@ -95,7 +95,17 @@ class Admin::QuizzesController < ApplicationController
 
   def statistics
     @quiz_questions_size = @quiz.questions.size
-    @statistics = Leaderboard.admin_statistics(@quiz.id).paginate( :page => params[:page], per_page: 35 )
+    @statistics = Leaderboard.admin_statistics(@quiz.id)
+
+    if params[:department].present?
+      @statistics_by_department = []
+      @statistics.each do |statistic|
+        @statistics_by_department << statistic if statistic[:department] == params[:department]
+      end
+      @statistics = @statistics_by_department
+    end
+
+    @statistics = @statistics.paginate( :page => params[:page], per_page: 35 )
   end
 
   private
