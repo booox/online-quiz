@@ -645,3 +645,99 @@ form.new_quiz, form.edit_quiz {
 #export-stat {
   margin-left: 10px;
 }
+
+
+// for admin users page
+div.search{
+  float: right;
+  width: auto;
+  display: block;
+}
+
+div.search-block {
+  display: block;
+  width: 200px;
+  float:right;
+  margin-bottom: 5px;
+  height: 50;
+  #user_search {
+    display: inline;
+  }
+}
+
+div.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  button {
+    padding: 3px 0;
+    width: 18px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    border: 0;
+    background-color: transparent;
+  }
+}
+
+
+@media (min-width: 768px){
+  .input-group {
+      display: inline-table;
+      vertical-align: middle;
+  }
+}
+
+
+
+
+.search .search-block {
+    float: left;
+    display: block;
+    width: 170px;
+    padding-left: 0
+}
+
+.search .search-block span {
+    color: #888;
+    font-size: 12px;
+    padding-left: 10px
+}
+
+.search .search-block .search-btn {
+    padding-left: 0
+}
+
+.search .search-block button {
+    padding: 3px 0;
+    width: 18px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    border: 0;
+    background-color: transparent
+}
+
+.search .search-block button i {
+    float: left
+}
+
+.search .search-block .navbar-form {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0
+}
+
+.search .search-block input {
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #dedede;
+    width: 140px;
+    letter-spacing: 1px
+}
+
+.search .search-block .form-control {
+    border: 0
+}

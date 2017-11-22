@@ -55,6 +55,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'rubyzip'
 gem 'axlsx'
 gem 'axlsx_rails'
+gem 'ransack'
 
 
 group :development, :test do

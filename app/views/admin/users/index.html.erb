@@ -13,40 +13,56 @@
 
         <div class="account-profile">
 
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th><%= t("site.admin.users.no") %></th>
-                <th><%= t("site.admin.users.email") %></th>
-                <th><%= t("site.admin.users.nickname") %></th>
-                <th><%= t("site.admin.users.real_name") %></th>
-                <th><%= t("site.admin.users.organization") %></th>
-                <th><%= t("site.admin.users.department") %></th>
-                <th><%= t("site.admin.users.operate") %></th>
-              </tr>
-            </thead>
+            <div class="search">
+                <div class="search-block">
+                    <%= search_form_for @q, url: admin_users_path do |f| %>
+                    <div class="input-group">
+                        <span class="search-btn">
+                            <button type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                            <%= f.search_field :email_cont, placeholder: "Email", class: "form-control" %>
+                        </span>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
 
-            <tbody>
-              <% @users.each_with_index do |user, index| %>
-              <tr>
-                <td><%= index %></td>
-                <td><%= user.email %></td>
-                <td><%= user.profile.nickname %></td>
-                <td><%= user.profile.real_name %></td>
-                <td><%= user.profile.organization %></td>
-                <td><%= user.profile.department %></td>
-                <td>
-                  <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-primary btn-xs" %>
-                  <%= link_to "Delete", admin_user_path(user), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: t("site.delete_confirm") } %>
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
 
-          <div class="text-center">
-            <%= will_paginate @users, class: "apple_pagination" %>
-          </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><%= t("site.admin.users.no") %></th>
+                        <th><%= t("site.admin.users.email") %></th>
+                        <th><%= t("site.admin.users.nickname") %></th>
+                        <th><%= t("site.admin.users.real_name") %></th>
+                        <th><%= t("site.admin.users.organization") %></th>
+                        <th><%= t("site.admin.users.department") %></th>
+                        <th><%= t("site.admin.users.operate") %></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @users.each_with_index do |user, index| %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.profile.nickname %></td>
+                        <td><%= user.profile.real_name %></td>
+                        <td><%= user.profile.organization %></td>
+                        <td><%= user.profile.department %></td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-primary btn-xs" %>
+                            <%= link_to "Delete", admin_user_path(user), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: t("site.delete_confirm") } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+            <div class="text-center">
+                <%= will_paginate @users, class: "apple_pagination" %>
+            </div>
         </div>
 
     </div>
