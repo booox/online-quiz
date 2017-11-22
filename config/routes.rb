@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         put :password_update
       end
     end
+    resources :organizations
   end
 
   resources :quizzes do

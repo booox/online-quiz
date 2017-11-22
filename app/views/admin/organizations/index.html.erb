@@ -1,0 +1,47 @@
+
+<div class="dashboard-content">
+    <div class="account-content">
+        <div class="account-tab col-xs-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <%= link_to admin_organizations_path do %>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <%= t("site.navbar.organization") %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+
+        <div class="pull-right" style="padding-right: 20px;">
+          <%= link_to("新增组织", new_admin_organization_path, class: "btn btn-primary btn-sm" ) %>
+        </div>
+
+        <div class="account-profile">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><%= t("site.admin.organization.title") %></th>
+                        <th><%= t("site.admin.organization.alias") %></th>
+                        <th><%= t("site.admin.users.operate") %></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @organizations.each do |organization| %>
+                    <tr>
+                        <td><%= organization.title %></td>
+                        <td><%= organization.alias %></td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_organization_path(organization), class: "btn btn-primary btn-xs" %>
+                            <%= link_to "Delete", admin_organization_path(organization), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: t("site.delete_confirm") } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

@@ -4,7 +4,7 @@
     <%= g.input :complain_id, as: :hidden, input_html: { value: params[:complain_id]} %>
     <%= g.simple_fields_for :messages, @message do |f| %>
       <%= f.input :subject, input_html: { value: "吐槽反馈" } %>
-      <%= f.input :content, as: :text, input_html: { value: "Hi, #{@complain_user.email} \n\n" } %>
+      <%= f.input :content, as: :text, input_html: { value: "Hi, #{@complain_user.display_name} , 谢谢你的反馈。\n\n" } %>
       <%= f.input :recipient_id, as: :hidden, input_html: { value: @complain.user.id } %>
       <%= f.input :sender_id, as: :hidden, input_html: { value: current_user.id } %>
     <% end %>

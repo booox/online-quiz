@@ -35,10 +35,14 @@
       question: "问题管理"
       category: "类别管理"
       type: "题型管理"
+      organization: "组织管理"
       users: "用户管理"
       account: "我的账户"
       logout: "登出"
     admin:
+      organization:
+        title: "名称"
+        alias: "别名"
       users:
         title: "用户管理"
         no: "No."
@@ -111,6 +115,12 @@
       graph: "图示"
       current_user_statistics: "当前进度: "
       not_start: "还没有开始做，要抓紧喽！"
+  profile:
+    organizations:
+      nb2j: "宁波第二技师学院"
+    departments:
+      17jzsg: "17 建筑施工"
+      17jzzsB: "17 建筑装饰 B"
   question:
     answer:
       "false": "否"

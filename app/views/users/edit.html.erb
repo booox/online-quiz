@@ -24,8 +24,8 @@
               <%= g.simple_fields_for :profile, @profile do |f| %>
                 <%= f.input :nickname, label: t("site.account.profile.nickname") %>
                 <%= f.input :real_name, label: t("site.account.profile.real_name") %>
-                <%= f.input :organization, label: t("site.account.profile.organization") %>
-                <%= f.input :department, label: t("site.account.profile.department") %>
+                <%= f.input :organization, as: :select, collection: Organization.all { |o| [o.id, o.value] }, include_blank: "请选择公司/单位" %>
+                <%= f.input :department, as: :select, collection: Department.all { |d| [d.id, d.value] }, include_blank: "请选择部门/班级" %>
                 <%= f.input :wechat, label: t("site.account.profile.wechat") %>
                 <%= f.input :qq, label: t("site.account.profile.qq") %>
                 <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>

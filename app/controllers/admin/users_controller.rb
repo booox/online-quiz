@@ -5,8 +5,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.where(is_admin: false).ransack(params[:q])
-    @users = @q.result.includes(:profile).order("id DESC").paginate( :page => params[:page], per_page: 10 )
-    # @users = User.includes(:profile).where(is_admin: false).paginate( :page => params[:page], per_page: 10 )
+    @users = @q.result.includes(:profile).order("id DESC").paginate( :page => params[:page], per_page: 35 )
   end
 
   def new

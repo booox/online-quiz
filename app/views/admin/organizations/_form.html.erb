@@ -1,0 +1,55 @@
+<div class="dashboard-content">
+  <div class="account-content" id="organizations">
+
+    <%= form_for [:admin, @organization] do |f| %>
+
+      <% if @organization.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@organization.errors.count, "错误：") %></h2>
+
+        <ul>
+        <% @organization.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :title, "组织名称" %>
+        <%= f.text_field :title, :class => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :alias, "组织缩写" %>
+        <%= f.text_field :alias, :class => "form-control" %>
+      </div>
+
+      <%= f.nested_fields_for :departments do |ff| %>
+        <fieldset style="border-left: 5px solid #bbb; margin-bottom: 10px; padding: 10px;">
+          <div class="form-group">
+            <%= ff.label :title, "部门名称" %>
+            <%= ff.text_field :title, :class => "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= ff.label :alias, "部门缩写" %>
+            <%= ff.text_field :alias, :class => "form-control" %>
+          </div>
+
+        </fieldset>
+        <%= ff.remove_nested_fields_link "移除这个部门", class: "btn btn-danger" %>
+      <% end %>
+
+      <div class="pull-right">
+        <%= f.add_nested_fields_link :departments, "增加一个部门", class: "btn btn-default" %>
+      </div>
+      <p style="margin-top: 15px">
+        <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary" %>
+        <%= link_to "Cancel", admin_organizations_path %>
+      </p>
+
+    <% end %>
+
+  </div>
+</div>
