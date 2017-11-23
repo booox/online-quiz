@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-        profile_attributes: [:id, :nickname, :real_name, :organization, :department, :wechat, :qq])
+        profile_attributes: [:id, :nickname, :real_name, :organization, :department, :wechat, :qq, :time_zone])
   end
 
   def find_user

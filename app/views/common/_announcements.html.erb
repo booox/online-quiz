@@ -1,0 +1,8 @@
+<% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
+
+  <div class="alert alert-dismissable alert-success announcement" id="announcement_<%= announcement.id %>">
+    <%= announcement.message %>
+    <%= link_to "不再提醒", hidden_announcement_path(announcement), remote: true %>
+  </div>
+
+<% end %>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "welcome#index"
   root "quizzes#index"
 
-  # get '/favorites', to: 'quiz_questions#show', as: 'favorites'
+  get '/announcements/:id/hide', to: 'announcements#hide', as: 'hidden_announcement'
 
   namespace :admin do
     resources :categories do
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       end
     end
     resources :organizations
+    resources :announcements
   end
 
   resources :quizzes do
@@ -73,7 +74,10 @@ Rails.application.routes.draw do
      end
   end
 
+  # resources :announcements#, only: [:hide]
+
   resource :user
+
 
 
 

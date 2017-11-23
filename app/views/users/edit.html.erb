@@ -28,6 +28,7 @@
                 <%= f.input :department, as: :select, collection: Department.all { |d| [d.id, d.value] }, include_blank: "请选择部门/班级" %>
                 <%= f.input :wechat, label: t("site.account.profile.wechat") %>
                 <%= f.input :qq, label: t("site.account.profile.qq") %>
+                <%= f.input :time_zone, label: t("site.account.profile.time_zone") %>
                 <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
               <% end %>
 
@@ -39,3 +40,5 @@
 
         </div>
     </div>
+
+<%= Time.zone.now %>

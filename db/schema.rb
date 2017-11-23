@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122101503) do
+ActiveRecord::Schema.define(version: 20171123000238) do
+
+  create_table "announcements", force: :cascade do |t|
+    t.text     "message"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -112,6 +120,7 @@ ActiveRecord::Schema.define(version: 20171122101503) do
     t.string   "qq"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "time_zone"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

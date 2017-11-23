@@ -1,0 +1,49 @@
+
+<div class="dashboard-content">
+    <div class="account-content">
+        <div class="account-tab col-xs-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <%= link_to admin_announcements_path do %>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <%= t("site.navbar.announcement") %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+
+        <div class="pull-right" style="padding-right: 20px;">
+          <%= link_to("新增管理", new_admin_announcement_path, class: "btn btn-primary btn-sm" ) %>
+        </div>
+
+        <div class="account-profile">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><%= t("site.admin.announcement.message") %></th>
+                        <th><%= t("site.admin.announcement.starts_at") %></th>
+                        <th><%= t("site.admin.announcement.ends_at") %></th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @announcements.each do |announcement| %>
+                    <tr>
+                        <td><%= announcement.message %></td>
+                        <td><%= announcement.starts_at %></td>
+                        <td><%= announcement.ends_at %></td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_announcement_path(announcement), class: "btn btn-primary btn-xs" %>
+                            <%= link_to "Delete", admin_announcement_path(announcement), method: :delete, class: "btn btn-danger btn-xs", data: { confirm: t("site.delete_confirm") } %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
