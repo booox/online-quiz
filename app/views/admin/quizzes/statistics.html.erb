@@ -18,13 +18,13 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                      <% Leaderboard.get_departments.each do |department| %>
+                                        <% Leaderboard.get_departments.each do |department| %>
                                         <li>
                                             <%= link_to department, statistics_admin_quiz_path(@quiz, department: department ) %>
                                         </li>
-                                      <% end %>
-                                      <li class="divider" role="separator"></li>
-                                      <li><%= link_to "全部", statistics_admin_quiz_path(@quiz) %></li>
+                                        <% end %>
+                                        <li class="divider" role="separator"></li>
+                                        <li><%= link_to "全部", statistics_admin_quiz_path(@quiz) %></li>
                                     </ul>
                                     <%= link_to "导出为 Excel", statistics_admin_quiz_path(@quiz, format: :xlsx), class: "btn btn-default", id: "export-stat" %>
                                 </div>
@@ -55,7 +55,19 @@
                             <td class="stat-user-name"><%= statistic[:department] %></td>
                             <td class="stat-user-name"><%= statistic[:real_name] %></td>
                             <td class="stat-count"><%= statistic[:answered] %></td>
-                            <td class="stat-count"><%= "#{statistic[:right]} : #{statistic[:wrong]}" %></td>
+                            <td class="stat-count">
+                                <%#= "#{statistic[:right]} : #{statistic[:wrong]}" %>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= statistic[:right] %>" aria-valuemin="0" aria-valuemax="<%= @quiz_questions_size %>" style="width: <%= progressBar(statistic[:right].to_i, @quiz_questions_size) %>%">
+                                      <%= "#{statistic[:right]}" %>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="<%= statistic[:wrong] %>" aria-valuemin="0" aria-valuemax="<%= @quiz_questions_size %>" style="width: <%= progressBar(statistic[:wrong].to_i, @quiz_questions_size) %>%">
+                                      <%= "#{statistic[:wrong]}" %>
+                                    </div>
+                                </div>
+                            </td>
                             <td class="stat-count"><%= statistic[:score] %></td>
                             <td class="stat-graph">
                                 <% if statistic[:answered] > 0 %>
