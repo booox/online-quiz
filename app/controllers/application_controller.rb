@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_timezone
-    if current_user && current_user.profile.time_zone
+    if current_user && current_user.profile.time_zone != ""
       Time.zone = current_user.profile.time_zone
     else
       Time.zone = 'Beijing'
